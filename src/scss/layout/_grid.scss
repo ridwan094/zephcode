@@ -1,0 +1,76 @@
+/* Flexbox Layout for Rows and Columns */
+.zc-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+}
+
+.zc-col {
+    flex: 1;
+    padding: 0.5rem;
+    max-width: 100%;
+}
+
+/* Grid Layout */
+.zc-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.zc-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.zc-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Offset Grid System */
+.zc-col-offset-1 {
+    margin-left: 8.333333%;
+}
+
+.zc-col-offset-2 {
+    margin-left: 16.666667%;
+}
+
+.zc-col-offset-3 {
+    margin-left: 25%;
+}
+
+/* Responsive Grid Layout */
+.zc-grid-responsive {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 576px) {
+    .zc-grid-responsive-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .zc-grid-responsive-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .zc-grid-responsive-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .zc-grid-responsive-6 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Debugging Utilities for Grid */
+.zc-grid-debug {
+    border: 1px dashed rgba(0, 255, 0, 0.6);
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.zc-col-debug {
+    border: 1px dashed rgba(255, 0, 0, 0.6);
+    background-color: rgba(255, 0, 0, 0.1);
+}

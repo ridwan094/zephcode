@@ -1,0 +1,39 @@
+.text-muted {
+    color: #6c757d !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.font-italic {
+    font-style: italic !important;
+}
+
+.font-monospace {
+    font-family: monospace, monospace !important;
+}
+
+.fs-1 {
+    font-size: 2.5rem !important;
+}
+
+.fs-2 {
+    font-size: 2rem !important;
+}
+
+.fs-3 {
+    font-size: 1.75rem !important;
+}
+
+.fs-4 {
+    font-size: 1.5rem !important;
+}
+
+.resp-font-sm {
+    font-size: calc(0.8rem + 0.2vw);
+}
+
+.resp-font-lg {
+    font-size: calc(1.5rem + 0.5vw);
+}

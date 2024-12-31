@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as variables;
+
+.zc-card {
+    border: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background-color: variables.$white;
+}
+
+.zc-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: variables.$text-color;
+}
+
+.zc-card-text {
+    font-size: 1rem;
+    color: variables.$text-color;
+    line-height: 1.5;
+}
+
+/* Variasi Ukuran */
+.zc-card.small {
+    width: 18rem;
+}
+
+.zc-card.large {
+    width: 32rem;
+}
+
+/* Tambahan Fitur */
+.zc-card-header {
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid variables.$border-color;
+    font-weight: bold;
+}
+
+.zc-card-footer {
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid variables.$border-color;
+    text-align: right;
+}
+
+.zc-card-image {
+    width: 100%;
+    border-bottom: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius variables.$border-radius 0 0;
+}

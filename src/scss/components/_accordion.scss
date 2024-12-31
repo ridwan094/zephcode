@@ -1,0 +1,32 @@
+.zc-accordion {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.zc-accordion-item {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.zc-accordion-header {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zc-accordion-header:hover {
+    background-color: #e9ecef;
+}
+
+.zc-accordion-content {
+    padding: 1rem;
+    display: none;
+    background-color: #fff;
+}
+
+.zc-accordion-content.show {
+    display: block;
+}

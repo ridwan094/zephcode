@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Tabs</h1>
+        <ul class="zc-tabs">
+            <li class="zc-tab-item active"><a href="#tab1">Tab 1</a></li>
+            <li class="zc-tab-item"><a href="#tab2">Tab 2</a></li>
+            <li class="zc-tab-item"><a href="#tab3">Tab 3</a></li>
+        </ul>
+        <div id="tab1" class="zc-tab-content">
+            <p>This is the content for Tab 1.</p>
+        </div>
+        <div id="tab2" class="zc-tab-content" style="display: none;">
+            <p>This is the content for Tab 2.</p>
+        </div>
+        <div id="tab3" class="zc-tab-content" style="display: none;">
+            <p>This is the content for Tab 3.</p>
+        </div>
+    </main>
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.zc-tab-item');
+        const contents = document.querySelectorAll('.zc-tab-content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+                tabs.forEach((t) => t.classList.remove('active'));
+                contents.forEach((c) => (c.style.display = 'none'));
+                tab.classList.add('active');
+                contents[index].style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations Example</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Custom Animations Styling */
+        .fade-in-once {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0; /* Hidden initially */
+        }
+
+        .slide-up-once {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0; /* Hidden initially */
+        }
+
+        .hover-zoom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-shake {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .hover-shake:hover {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Animations Example</h1>
+
+        <!-- Section 1: Load Animations -->
+        <h2>Load Animations</h2>
+        <div class="zc-card fade-in-once" style="margin-bottom: 1rem;">
+            <h3 class="zc-card-title">Fade In Animation</h3>
+            <p class="zc-card-text">This card smoothly fades in when the page loads.</p>
+        </div>
+        <div class="zc-card slide-up-once" style="margin-bottom: 1rem;">
+            <h3 class="zc-card-title">Slide Up Animation</h3>
+            <p class="zc-card-text">This card slides up elegantly when the page loads.</p>
+        </div>
+
+        <!-- Section 2: Hover Animations -->
+        <h2>Hover Animations</h2>
+        <p>Hover over the elements below to trigger animations:</p>
+        <button class="zc-btn zc-btn-primary hover-zoom">Hover Zoom</button>
+        <button class="zc-btn zc-btn-secondary hover-shake" style="margin-left: 1rem;">Hover Shake</button>
+
+        <!-- Section 3: Interactive Animations -->
+        <h2>Interactive Animations</h2>
+        <div class="zc-card hover-zoom" style="margin-bottom: 1rem; background-color: #f8f9fa; padding: 1rem;">
+            <h3 class="zc-card-title">Hover Zoom Card</h3>
+            <p class="zc-card-text">This card scales up slightly on hover for emphasis.</p>
+        </div>
+        <div class="zc-card hover-shake" style="margin-bottom: 1rem; background-color: #f1f1f1; padding: 1rem;">
+            <h3 class="zc-card-title">Hover Shake Card</h3>
+            <p class="zc-card-text">This card shakes gently when hovered over.</p>
+        </div>
+    </main>
+</body>
+
+</html>

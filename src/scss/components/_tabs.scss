@@ -1,0 +1,27 @@
+.zc-tabs {
+    display: flex;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.zc-tab {
+    padding: 0.5rem 1rem;
+    margin-right: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid transparent;
+    border-bottom: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.zc-tab:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+.zc-tab.active {
+    background-color: #fff;
+    color: #212529;
+    border-color: #dee2e6 #dee2e6 #fff;
+}

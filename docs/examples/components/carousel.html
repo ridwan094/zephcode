@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Example</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+</head>
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Carousel Example</h1>
+        <div class="zc-carousel">
+            <div class="zc-carousel-item active">Slide 1</div>
+            <div class="zc-carousel-item">Slide 2</div>
+            <div class="zc-carousel-item">Slide 3</div>
+        </div>
+        <button class="zc-btn zc-btn-secondary" onclick="prevSlide()">Previous</button>
+        <button class="zc-btn zc-btn-secondary" onclick="nextSlide()">Next</button>
+    </main>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.zc-carousel-item');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>

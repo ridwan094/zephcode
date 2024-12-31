@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltips - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Tooltip styling */
+        .zc-tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .zc-tooltip .zc-tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the element */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .zc-tooltip:hover .zc-tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Tooltips</h1>
+        <div class="zc-tooltip">
+            <button class="zc-btn zc-btn-primary">Hover me</button>
+            <div class="zc-tooltip-text">This is a tooltip</div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.zc-alert {
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.zc-alert-primary {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+.zc-alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.zc-alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}

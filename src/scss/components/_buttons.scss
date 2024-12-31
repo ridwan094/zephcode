@@ -1,0 +1,60 @@
+.zc-btn,
+.zc-btn-secondary,
+.zc-btn-danger,
+.zc-btn-success,
+.zc-btn-outline {
+    display: inline-block;
+    width: 150px; /* Lebar konsisten */
+    height: auto; /* Tinggi otomatis sesuai konten */
+    text-align: center;
+    padding: 0.75rem 1rem; /* Padding konsisten */
+    font-size: 1rem;
+    line-height: 1.5; /* Tinggi garis seragam */
+    border: 2px solid transparent; /* Default border */
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Variasi Tombol */
+.zc-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.zc-btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.zc-btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.zc-btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.zc-btn-outline {
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+}
+
+/* Hover States */
+.zc-btn:hover,
+.zc-btn-secondary:hover,
+.zc-btn-danger:hover,
+.zc-btn-success:hover,
+.zc-btn-outline:hover {
+    opacity: 0.9;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}

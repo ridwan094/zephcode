@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as variables;
+
+.zc-carousel {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.zc-carousel-item {
+    flex: 0 0 100%;
+    transition: transform 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.25rem;
+    background-color: variables.$white;
+    color: variables.$text-color;
+}
+
+.zc-carousel-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.zc-carousel-item.previous {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.zc-carousel-item.next {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.zc-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: variables.$border-radius;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.zc-carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.zc-carousel-control-prev {
+    left: 1rem;
+}
+
+.zc-carousel-control-next {
+    right: 1rem;
+}
+
+.zc-carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.zc-carousel-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.zc-carousel-indicator.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.zc-carousel-indicator:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

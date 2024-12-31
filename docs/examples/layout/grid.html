@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        .grid-example {
+            margin-bottom: 2rem;
+        }
+
+        .zc-col {
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            background-color: #f8f9fa;
+        }
+
+        .zc-row.debug .zc-col {
+            border: 1px dashed red;
+        }
+
+        .heading {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Grid</h1>
+        <p>This page demonstrates different variations of the ZephCode Grid system.</p>
+
+        <!-- Basic Grid -->
+        <section class="grid-example">
+            <h2 class="heading">Basic Grid</h2>
+            <div class="zc-row">
+                <div class="zc-col">Column 1</div>
+                <div class="zc-col">Column 2</div>
+                <div class="zc-col">Column 3</div>
+            </div>
+        </section>
+
+        <!-- Grid with Different Column Sizes -->
+        <section class="grid-example">
+            <h2 class="heading">Custom Column Sizes</h2>
+            <div class="zc-row">
+                <div class="zc-col" style="flex: 2;">Column 1 (2 parts)</div>
+                <div class="zc-col" style="flex: 1;">Column 2 (1 part)</div>
+                <div class="zc-col" style="flex: 3;">Column 3 (3 parts)</div>
+            </div>
+        </section>
+
+        <!-- Grid with Debugging -->
+        <section class="grid-example">
+            <h2 class="heading">Grid Debugging</h2>
+            <div class="zc-row debug">
+                <div class="zc-col">Column 1</div>
+                <div class="zc-col">Column 2</div>
+                <div class="zc-col">Column 3</div>
+            </div>
+        </section>
+
+        <!-- Responsive Grid -->
+        <section class="grid-example">
+            <h2 class="heading">Responsive Grid</h2>
+            <div class="zc-grid-responsive zc-grid-responsive-3">
+                <div class="zc-col">Item 1</div>
+                <div class="zc-col">Item 2</div>
+                <div class="zc-col">Item 3</div>
+                <div class="zc-col">Item 4</div>
+                <div class="zc-col">Item 5</div>
+                <div class="zc-col">Item 6</div>
+            </div>
+        </section>
+
+        <!-- Nested Grid -->
+        <section class="grid-example">
+            <h2 class="heading">Nested Grid</h2>
+            <div class="zc-row">
+                <div class="zc-col">
+                    Parent Column 1
+                    <div class="zc-row">
+                        <div class="zc-col">Child Column 1</div>
+                        <div class="zc-col">Child Column 2</div>
+                    </div>
+                </div>
+                <div class="zc-col">
+                    Parent Column 2
+                    <div class="zc-row">
+                        <div class="zc-col">Child Column 1</div>
+                        <div class="zc-col">Child Column 2</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

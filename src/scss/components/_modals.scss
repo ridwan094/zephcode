@@ -1,0 +1,51 @@
+.zc-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+    display: none;
+}
+
+.zc-modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: bold;
+    font-size: 1.25rem;
+    background-color: #f8f9fa;
+}
+
+.zc-modal-body {
+    padding: 1rem;
+}
+
+.zc-modal-footer {
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    text-align: right;
+}
+
+.zc-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+}
+
+.zc-modal-show {
+    display: block;
+}
+
+.zc-modal-backdrop-show {
+    display: block;
+}

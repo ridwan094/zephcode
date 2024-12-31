@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offcanvas - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Custom styling for the example */
+        .offcanvas-backdrop {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1040;
+            display: none;
+        }
+
+        .offcanvas-show .offcanvas-backdrop {
+            display: block;
+        }
+
+        .zc-offcanvas {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+            z-index: 1050;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .offcanvas-show .zc-offcanvas {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Offcanvas Example</h1>
+        <button class="zc-btn zc-btn-primary" id="openOffcanvasBtn">Open Offcanvas</button>
+
+        <div class="offcanvas-backdrop" id="offcanvasBackdrop"></div>
+
+        <div class="zc-offcanvas" id="offcanvas">
+            <div class="zc-offcanvas-header">
+                <h2>Offcanvas Title</h2>
+                <button class="zc-btn zc-btn-outline" id="closeOffcanvasBtn">Close</button>
+            </div>
+            <div class="zc-offcanvas-body">
+                <p>This is the offcanvas content area.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const openOffcanvasBtn = document.getElementById("openOffcanvasBtn");
+        const closeOffcanvasBtn = document.getElementById("closeOffcanvasBtn");
+        const offcanvas = document.getElementById("offcanvas");
+        const backdrop = document.getElementById("offcanvasBackdrop");
+
+        openOffcanvasBtn.addEventListener("click", () => {
+            offcanvas.parentNode.classList.add("offcanvas-show");
+        });
+
+        closeOffcanvasBtn.addEventListener("click", () => {
+            offcanvas.parentNode.classList.remove("offcanvas-show");
+        });
+
+        backdrop.addEventListener("click", () => {
+            offcanvas.parentNode.classList.remove("offcanvas-show");
+        });
+    </script>
+</body>
+
+</html>

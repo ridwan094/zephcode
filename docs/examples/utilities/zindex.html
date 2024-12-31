@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Utilities - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Styling untuk visualisasi z-index */
+        .z-index-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .z-index-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .z-index-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .z-index-box.z-index-0 {
+            background-color: #f8d7da;
+            z-index: 0;
+            top: 50px;
+            left: 50px;
+        }
+
+        .z-index-box.z-index-1 {
+            background-color: #d1ecf1;
+            z-index: 1;
+            top: 80px;
+            left: 80px;
+        }
+
+        .z-index-box.z-index-2 {
+            background-color: #d4edda;
+            z-index: 2;
+            top: 110px;
+            left: 110px;
+        }
+
+        .z-index-box.z-index-3 {
+            background-color: #ffeeba;
+            z-index: 3;
+            top: 140px;
+            left: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Z-Index Utilities</h1>
+        <p>This page demonstrates the use of Z-Index utilities in ZephCode with a more dynamic visualization.</p>
+
+        <div class="z-index-container">
+            <div class="z-index-box z-index-0">Z-Index 0</div>
+            <div class="z-index-box z-index-1">Z-Index 1</div>
+            <div class="z-index-box z-index-2">Z-Index 2</div>
+            <div class="z-index-box z-index-3">Z-Index 3</div>
+        </div>
+    </main>
+</body>
+
+</html>

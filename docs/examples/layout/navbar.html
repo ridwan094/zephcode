@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Navbar Section Styling */
+        .navbar-section {
+            margin-bottom: 2rem;
+        }
+
+        .navbar-example {
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .navbar-example h2 {
+            padding: 0.5rem;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        /* Dropdown Styles */
+        .zc-dropdown {
+            position: relative;
+        }
+
+        .zc-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 0.5rem;
+        }
+
+        .zc-dropdown-menu .zc-dropdown-item {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .zc-dropdown-menu .zc-dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .zc-dropdown.open .zc-dropdown-menu {
+            display: block;
+        }
+
+        /* Responsive Navbar */
+        .zc-navbar-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .zc-navbar-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #007bff;
+            padding: 1rem;
+        }
+
+        .zc-navbar-menu a {
+            color: white;
+            padding: 0.5rem 0;
+        }
+
+        .zc-navbar-show {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Navbar</h1>
+        <p>This page demonstrates different variations of navbars created with ZephCode.</p>
+
+        <!-- Basic Navbar -->
+        <section class="navbar-section">
+            <div class="navbar-example">
+                <h2>Basic Navbar</h2>
+                <div class="zc-navbar">
+                    <div class="zc-navbar-brand">ZephCode</div>
+                    <nav>
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navbar with Dropdown -->
+        <section class="navbar-section">
+            <div class="navbar-example">
+                <h2>Navbar with Dropdown</h2>
+                <div class="zc-navbar">
+                    <div class="zc-navbar-brand">ZephCode</div>
+                    <nav>
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <div class="zc-dropdown">
+                            <button class="zc-dropdown-toggle" onclick="toggleDropdown(this)">More ▼</button>
+                            <div class="zc-dropdown-menu">
+                                <a href="#" class="zc-dropdown-item">Option 1</a>
+                                <a href="#" class="zc-dropdown-item">Option 2</a>
+                                <a href="#" class="zc-dropdown-item">Option 3</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Centered Navbar -->
+        <section class="navbar-section">
+            <div class="navbar-example">
+                <h2>Centered Navbar</h2>
+                <div class="zc-navbar zc-navbar-centered">
+                    <nav>
+                        <a href="#">Home</a>
+                        <a href="#">Services</a>
+                        <a href="#">Portfolio</a>
+                        <a href="#">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Navbar -->
+        <section class="navbar-section">
+            <div class="navbar-example">
+                <h2>Responsive Navbar</h2>
+                <div class="zc-navbar zc-navbar-responsive">
+                    <div class="zc-navbar-brand">ZephCode</div>
+                    <button class="zc-navbar-toggle" onclick="toggleResponsiveMenu()">☰</button>
+                    <nav class="zc-navbar-menu">
+                        <a href="#">Home</a>
+                        <a href="#">Services</a>
+                        <a href="#">Portfolio</a>
+                        <a href="#">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleDropdown(button) {
+            const dropdown = button.parentElement;
+            dropdown.classList.toggle("open");
+        }
+
+        function toggleResponsiveMenu() {
+            const menu = document.querySelector(".zc-navbar-menu");
+            menu.classList.toggle("zc-navbar-show");
+        }
+    </script>
+</body>
+
+</html>

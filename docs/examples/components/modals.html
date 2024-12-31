@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modals - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+</head>
+
+<body>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Modals</h1>
+        <button class="zc-btn zc-btn-primary" onclick="toggleModal()">Open Modal</button>
+        <div class="zc-modal" id="exampleModal">
+            <div class="zc-modal-content">
+                <h3>Modal Title</h3>
+                <p>This is an example modal.</p>
+                <button class="zc-btn zc-btn-danger" onclick="toggleModal()">Close</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('exampleModal');
+            modal.classList.toggle('zc-modal-show');
+        }
+    </script>
+</body>
+
+</html>

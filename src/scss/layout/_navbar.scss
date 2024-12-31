@@ -1,0 +1,18 @@
+.zc-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+}
+
+.zc-navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.zc-navbar a:hover {
+    text-decoration: underline;
+}

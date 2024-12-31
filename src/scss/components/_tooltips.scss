@@ -1,0 +1,26 @@
+.zc-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.zc-tooltip .zc-tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.zc-tooltip:hover .zc-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

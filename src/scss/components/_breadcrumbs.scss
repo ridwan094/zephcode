@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as variables;
+
+.zc-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.zc-breadcrumb-item {
+    margin-right: 0.5rem;
+}
+
+.zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: #6c757d;
+}
+
+.zc-breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* Separator Variasi */
+.zc-breadcrumb.separator-arrow .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "→";
+}
+
+.zc-breadcrumb.separator-dot .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "•";
+}
+
+.zc-breadcrumb-item + .zc-breadcrumb-item:hover::before {
+    text-decoration: underline;
+    color: variables.$primary-color;
+}

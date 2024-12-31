@@ -1,0 +1,29 @@
+.zc-navbar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.zc-dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.zc-navbar-dropdown:hover .zc-dropdown-menu {
+    display: block;
+}
+
+.zc-dropdown-menu a {
+    display: block;
+    text-decoration: none;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.zc-dropdown-menu a:hover {
+    text-decoration: underline;
+}
