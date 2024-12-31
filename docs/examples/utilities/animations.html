@@ -7,15 +7,17 @@
     <title>Animations Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
     <style>
-        /* Custom Animations Styling */
+        /* Custom Styling for Animations */
         .fade-in-once {
             animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0; /* Hidden initially */
+            opacity: 0;
+            /* Hidden initially */
         }
 
         .slide-up-once {
             animation: slideUp 1s ease-out forwards;
-            opacity: 0; /* Hidden initially */
+            opacity: 0;
+            /* Hidden initially */
         }
 
         .hover-zoom {
@@ -23,7 +25,7 @@
         }
 
         .hover-zoom:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
@@ -36,38 +38,57 @@
         }
 
         @keyframes shake {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateX(0);
             }
+
             25% {
                 transform: translateX(-5px);
             }
+
             50% {
                 transform: translateX(5px);
             }
+
             75% {
                 transform: translateX(-5px);
             }
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
+        .zoom-in-once {
+            animation: zoomIn 1s ease-in-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .bounce {
+            animation: bounce 1.5s infinite;
+        }
+
+        .rotate {
+            animation: rotate 1s linear infinite;
+            display: inline-block;
+            transform-origin: center center;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
             }
-            100% {
-                opacity: 1;
+
+            to {
+                transform: rotate(360deg);
             }
         }
 
-        @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        /* Container for interactive examples */
+        .animation-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
         }
     </style>
 </head>
@@ -92,22 +113,42 @@
             <h3 class="zc-card-title">Slide Up Animation</h3>
             <p class="zc-card-text">This card slides up elegantly when the page loads.</p>
         </div>
+        <div class="zc-card zoom-in-once" style="margin-bottom: 1rem;">
+            <h3 class="zc-card-title">Zoom In Animation</h3>
+            <p class="zc-card-text">This card zooms in smoothly when the page loads.</p>
+        </div>
 
         <!-- Section 2: Hover Animations -->
         <h2>Hover Animations</h2>
-        <p>Hover over the elements below to trigger animations:</p>
-        <button class="zc-btn zc-btn-primary hover-zoom">Hover Zoom</button>
-        <button class="zc-btn zc-btn-secondary hover-shake" style="margin-left: 1rem;">Hover Shake</button>
-
-        <!-- Section 3: Interactive Animations -->
-        <h2>Interactive Animations</h2>
-        <div class="zc-card hover-zoom" style="margin-bottom: 1rem; background-color: #f8f9fa; padding: 1rem;">
-            <h3 class="zc-card-title">Hover Zoom Card</h3>
-            <p class="zc-card-text">This card scales up slightly on hover for emphasis.</p>
+        <div class="animation-container">
+            <button class="zc-btn zc-btn-primary hover-zoom">Hover Zoom</button>
+            <button class="zc-btn zc-btn-secondary hover-shake">Hover Shake</button>
         </div>
-        <div class="zc-card hover-shake" style="margin-bottom: 1rem; background-color: #f1f1f1; padding: 1rem;">
-            <h3 class="zc-card-title">Hover Shake Card</h3>
-            <p class="zc-card-text">This card shakes gently when hovered over.</p>
+
+        <!-- Section 3: Infinite Animations -->
+        <h2>Infinite Animations</h2>
+        <div class="animation-container">
+            <div class="zc-card bounce"
+                style="width: 150px; text-align: center; background-color: #f8f9fa; padding: 1rem;">
+                <h3 class="zc-card-title">Bounce</h3>
+            </div>
+            <div class="zc-card rotate"
+                style="width: 150px; text-align: center; background-color: #e0f7fa; padding: 1rem; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 1.2rem; font-weight: bold; transform-origin: center;">🔄</div>
+            </div>
+        </div>
+
+        <!-- Section 4: Interactive Animations -->
+        <h2>Interactive Animations</h2>
+        <div class="animation-container">
+            <div class="zc-card hover-zoom" style="background-color: #e9ecef; padding: 1rem;">
+                <h3 class="zc-card-title">Hover Zoom Card</h3>
+                <p class="zc-card-text">This card scales up slightly on hover for emphasis.</p>
+            </div>
+            <div class="zc-card hover-shake" style="background-color: #f8d7da; padding: 1rem;">
+                <h3 class="zc-card-title">Hover Shake Card</h3>
+                <p class="zc-card-text">This card shakes gently when hovered over.</p>
+            </div>
         </div>
     </main>
 </body>

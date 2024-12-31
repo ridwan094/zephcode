@@ -1,0 +1,43 @@
+.zc-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.zc-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.zc-step::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #dee2e6;
+    z-index: -1;
+}
+
+.zc-step:last-child::before {
+    content: none;
+}
+
+.zc-step.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.zc-step-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+}

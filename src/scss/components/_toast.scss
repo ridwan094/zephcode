@@ -68,3 +68,24 @@
         transform: translateY(0);
     }
 }
+
+.zc-toast.top-left {
+    top: 1rem;
+    left: 1rem;
+    bottom: auto;
+    right: auto;
+}
+
+.zc-toast.top-right {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
+    left: auto;
+}
+
+.zc-toast.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+    top: auto;
+    right: auto;
+}
