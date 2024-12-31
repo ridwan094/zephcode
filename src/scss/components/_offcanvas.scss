@@ -1,65 +1,47 @@
+/* src/scss/components/_offcanvas.scss */
 .zc-offcanvas {
     position: fixed;
-    z-index: 1050;
+    top: 0;
+    height: 100%;
+    width: 250px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
     transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
 }
 
-.zc-offcanvas.left {
-    top: 0;
-    bottom: 0;
+.zc-offcanvas-left {
     left: 0;
-    width: 250px;
     transform: translateX(-100%);
 }
 
-.zc-offcanvas.right {
-    top: 0;
-    bottom: 0;
+.zc-offcanvas-left.show {
+    transform: translateX(0);
+}
+
+.zc-offcanvas-right {
     right: 0;
-    width: 250px;
     transform: translateX(100%);
 }
 
-.zc-offcanvas.top {
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 250px;
-    transform: translateY(-100%);
-}
-
-.zc-offcanvas.bottom {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 250px;
-    transform: translateY(100%);
-}
-
-.zc-offcanvas.show {
+.zc-offcanvas-right.show {
     transform: translateX(0);
-}
-
-.zc-offcanvas.left.show,
-.zc-offcanvas.right.show {
-    transform: translateX(0);
-}
-
-.zc-offcanvas.top.show,
-.zc-offcanvas.bottom.show {
-    transform: translateY(0);
 }
 
 .zc-offcanvas-header {
     padding: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
     border-bottom: 1px solid #dee2e6;
+    font-size: 1.25rem;
 }
 
 .zc-offcanvas-body {
     padding: 1rem;
+}
+
+.zc-offcanvas-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toast Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
 </head>
+
 <body>
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
@@ -15,25 +17,33 @@
     </header>
     <main>
         <h1>Toast Example</h1>
-        <p>Click the buttons below to display toast notifications.</p>
-        <button class="zc-btn zc-btn-primary" onclick="showToast('success')">Show Success Toast</button>
-        <button class="zc-btn zc-btn-danger" onclick="showToast('danger')">Show Danger Toast</button>
+        <p>Click buttons below to display different types of toast notifications.</p>
+        <button class="zc-btn zc-btn-success" onclick="showToast('success')">Success Toast</button>
+        <button class="zc-btn zc-btn-info" onclick="showToast('info')">Info Toast</button>
+        <button class="zc-btn zc-btn-warning" onclick="showToast('warning')">Warning Toast</button>
+        <button class="zc-btn zc-btn-danger" onclick="showToast('danger')">Danger Toast</button>
 
-        <div id="toastContainer" class="toast-container"></div>
+        <div id="toast-container"></div>
     </main>
+
     <script>
         function showToast(type) {
-            const toastContainer = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `zc-toast zc-toast-${type} show bottom-right`;
-            toast.innerHTML = `<strong>${type === 'success' ? 'Success' : 'Error'}:</strong> This is a ${type} toast!`;
-            toastContainer.appendChild(toast);
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = `zc-toast zc-toast-${type}`;
+            toast.innerHTML = `
+                <div class="zc-toast-icon">🔔</div>
+                <div class="zc-toast-title">${type.toUpperCase()}:</div>
+                <div>This is a ${type} toast message!</div>
+                <button class="zc-toast-close" onclick="this.parentElement.remove()">✖</button>
+            `;
+            container.appendChild(toast);
 
             setTimeout(() => {
-                toast.classList.remove('show');
-                toast.addEventListener('transitionend', () => toast.remove());
+                toast.remove();
             }, 3000);
         }
     </script>
 </body>
+
 </html>

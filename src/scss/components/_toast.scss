@@ -1,42 +1,37 @@
+/* src/scss/components/_toast.scss */
 .zc-toast {
     position: fixed;
+    bottom: 1rem;
+    right: 1rem;
     z-index: 1050;
-    min-width: 200px;
+    min-width: 300px;
     background-color: #fff;
     border: 1px solid #ced4da;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     border-radius: 0.25rem;
     display: flex;
     align-items: center;
-    transition: all 0.5s ease-in-out;
+    gap: 0.5rem;
     opacity: 0;
-    visibility: hidden;
+    transform: translateY(20%);
+    animation: fadeInUp 0.5s forwards;
 }
 
-.zc-toast.show {
-    opacity: 1;
-    visibility: visible;
+.zc-toast .zc-toast-icon {
+    font-size: 1.5rem;
 }
 
-.zc-toast.top-right {
-    top: 1rem;
-    right: 1rem;
+.zc-toast-title {
+    font-weight: bold;
+    margin-right: auto;
 }
 
-.zc-toast.top-left {
-    top: 1rem;
-    left: 1rem;
-}
-
-.zc-toast.bottom-right {
-    bottom: 1rem;
-    right: 1rem;
-}
-
-.zc-toast.bottom-left {
-    bottom: 1rem;
-    left: 1rem;
+.zc-toast-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
 }
 
 .zc-toast-success {
@@ -49,4 +44,27 @@
     background-color: #f8d7da;
     border-color: #f5c6cb;
     color: #721c24;
+}
+
+.zc-toast-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.zc-toast-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

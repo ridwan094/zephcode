@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offcanvas Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
 </head>
+
 <body>
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
@@ -15,45 +17,39 @@
     </header>
     <main>
         <h1>Offcanvas Example</h1>
-        <button class="zc-btn zc-btn-primary" onclick="toggleOffcanvas('left')">Open Left Offcanvas</button>
-        <button class="zc-btn zc-btn-secondary" onclick="toggleOffcanvas('right')">Open Right Offcanvas</button>
-        <button class="zc-btn zc-btn-primary" onclick="toggleOffcanvas('top')">Open Top Offcanvas</button>
-        <button class="zc-btn zc-btn-secondary" onclick="toggleOffcanvas('bottom')">Open Bottom Offcanvas</button>
+        <button class="zc-btn zc-btn-primary" onclick="openOffcanvas('left')">Open Left Offcanvas</button>
+        <button class="zc-btn zc-btn-secondary" onclick="openOffcanvas('right')">Open Right Offcanvas</button>
 
-        <div id="offcanvasLeft" class="zc-offcanvas left">
+        <div id="offcanvas-left" class="zc-offcanvas zc-offcanvas-left">
             <div class="zc-offcanvas-header">
-                <h2>Left Offcanvas</h2>
-                <button onclick="toggleOffcanvas('left')">Close</button>
+                Left Offcanvas
+                <button class="zc-offcanvas-close" onclick="closeOffcanvas('left')">✖</button>
             </div>
-            <div class="zc-offcanvas-body">This is a left offcanvas.</div>
+            <div class="zc-offcanvas-body">
+                Content for left offcanvas.
+            </div>
         </div>
-        <div id="offcanvasRight" class="zc-offcanvas right">
+
+        <div id="offcanvas-right" class="zc-offcanvas zc-offcanvas-right">
             <div class="zc-offcanvas-header">
-                <h2>Right Offcanvas</h2>
-                <button onclick="toggleOffcanvas('right')">Close</button>
+                Right Offcanvas
+                <button class="zc-offcanvas-close" onclick="closeOffcanvas('right')">✖</button>
             </div>
-            <div class="zc-offcanvas-body">This is a right offcanvas.</div>
-        </div>
-        <div id="offcanvasTop" class="zc-offcanvas top">
-            <div class="zc-offcanvas-header">
-                <h2>Top Offcanvas</h2>
-                <button onclick="toggleOffcanvas('top')">Close</button>
+            <div class="zc-offcanvas-body">
+                Content for right offcanvas.
             </div>
-            <div class="zc-offcanvas-body">This is a top offcanvas.</div>
-        </div>
-        <div id="offcanvasBottom" class="zc-offcanvas bottom">
-            <div class="zc-offcanvas-header">
-                <h2>Bottom Offcanvas</h2>
-                <button onclick="toggleOffcanvas('bottom')">Close</button>
-            </div>
-            <div class="zc-offcanvas-body">This is a bottom offcanvas.</div>
         </div>
     </main>
+
     <script>
-        function toggleOffcanvas(position) {
-            const offcanvas = document.getElementById(`offcanvas${position.charAt(0).toUpperCase() + position.slice(1)}`);
-            offcanvas.classList.toggle('show');
+        function openOffcanvas(side) {
+            document.getElementById(`offcanvas-${side}`).classList.add("show");
+        }
+
+        function closeOffcanvas(side) {
+            document.getElementById(`offcanvas-${side}`).classList.remove("show");
         }
     </script>
 </body>
+
 </html>
