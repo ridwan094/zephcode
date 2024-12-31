@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toast Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
-    <style>
-        .toast-container {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-        }
-    </style>
 </head>
 <body>
     <header class="zc-navbar">
@@ -22,21 +15,23 @@
     </header>
     <main>
         <h1>Toast Example</h1>
-        <p>Click the button below to display a toast notification.</p>
-        <button class="zc-btn zc-btn-primary" onclick="showToast()">Show Toast</button>
+        <p>Click the buttons below to display toast notifications.</p>
+        <button class="zc-btn zc-btn-primary" onclick="showToast('success')">Show Success Toast</button>
+        <button class="zc-btn zc-btn-danger" onclick="showToast('danger')">Show Danger Toast</button>
 
-        <div class="toast-container">
-            <div class="zc-toast zc-toast-success" id="toast" style="display: none;">
-                <strong>Success:</strong> This is a toast message!
-            </div>
-        </div>
+        <div id="toastContainer" class="toast-container"></div>
     </main>
     <script>
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.style.display = 'block';
+        function showToast(type) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `zc-toast zc-toast-${type} show bottom-right`;
+            toast.innerHTML = `<strong>${type === 'success' ? 'Success' : 'Error'}:</strong> This is a ${type} toast!`;
+            toastContainer.appendChild(toast);
+
             setTimeout(() => {
-                toast.style.display = 'none';
+                toast.classList.remove('show');
+                toast.addEventListener('transitionend', () => toast.remove());
             }, 3000);
         }
     </script>

@@ -1,7 +1,5 @@
 .zc-toast {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
     z-index: 1050;
     min-width: 200px;
     background-color: #fff;
@@ -12,17 +10,33 @@
     display: flex;
     align-items: center;
     transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.zc-toast-title {
-    font-weight: bold;
-    margin-right: 1rem;
+.zc-toast.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-.zc-toast-close {
-    margin-left: auto;
-    cursor: pointer;
-    font-size: 1.25rem;
+.zc-toast.top-right {
+    top: 1rem;
+    right: 1rem;
+}
+
+.zc-toast.top-left {
+    top: 1rem;
+    left: 1rem;
+}
+
+.zc-toast.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.zc-toast.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
 }
 
 .zc-toast-success {
