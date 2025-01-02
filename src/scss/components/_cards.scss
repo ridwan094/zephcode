@@ -1,23 +1,94 @@
-@use "../abstracts/variables" as variables;
+@use "../abstracts/variables" as vars;
+@use "sass:color";
 
 .zc-card {
-    border: 1px solid variables.$border-color;
-    border-radius: variables.$border-radius;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$border-radius;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    background-color: variables.$white;
+    background-color: vars.$white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsivitas */
+    @media (max-width: vars.$breakpoint-md) {
+        width: 100%;
+    }
+
+    &.outline {
+        border: 1px solid vars.$primary-color;
+        background-color: transparent;
+
+        &:hover {
+            background-color: vars.$primary-light;
+            color: vars.$white;
+        }
+    }
+
+    &.gradient {
+        background: linear-gradient(to right, vars.$primary-color, vars.$success-color);
+        color: vars.$white;
+
+        &:hover {
+            background: linear-gradient(to left, vars.$primary-dark, vars.$success-dark);
+        }
+    }
+
+    &.shadow-sm {
+        box-shadow: vars.$shadow-sm;
+    }
+
+    &.shadow-lg {
+        box-shadow: vars.$shadow-lg;
+    }
+
+    &.floating {
+        &:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &.media {
+        position: relative;
+
+        img, video {
+            width: 100%;
+            height: auto;
+            border-radius: vars.$border-radius vars.$border-radius 0 0;
+        }
+
+        .zc-card-media-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: vars.$white;
+            padding: vars.$spacing-sm;
+            text-align: center;
+        }
+    }
+
+    &.animate {
+        animation: fadeIn 0.5s ease-in-out;
+    }
 }
 
 .zc-card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: variables.$text-color;
+    font-size: vars.$font-size-lg;
+    font-weight: vars.$font-weight-bold;
+    margin-bottom: vars.$spacing-xs;
+    color: vars.$text-color;
 }
 
 .zc-card-text {
-    font-size: 1rem;
-    color: variables.$text-color;
+    font-size: vars.$font-size-base;
+    color: vars.$text-color;
     line-height: 1.5;
 }
 
@@ -30,23 +101,121 @@
     width: 32rem;
 }
 
-/* Tambahan Fitur */
+/* Header dan Footer */
 .zc-card-header {
-    padding: 0.75rem 1rem;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid variables.$border-color;
-    font-weight: bold;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    background-color: vars.$gray-light;
+    border-bottom: 1px solid vars.$border-color;
+    font-weight: vars.$font-weight-bold;
 }
 
 .zc-card-footer {
-    padding: 0.75rem 1rem;
-    background-color: #f8f9fa;
-    border-top: 1px solid variables.$border-color;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    background-color: vars.$gray-light;
+    border-top: 1px solid vars.$border-color;
     text-align: right;
 }
 
+/* Gambar */
 .zc-card-image {
     width: 100%;
-    border-bottom: 1px solid variables.$border-color;
-    border-radius: variables.$border-radius variables.$border-radius 0 0;
+    border-bottom: 1px solid vars.$border-color;
+    border-radius: vars.$border-radius vars.$border-radius 0 0;
+}
+
+/* Variasi Hover */
+.zc-card:hover .zc-card-title {
+    color: vars.$primary-color;
+}
+
+/* Grid Kartu */
+.zc-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: vars.$spacing-md;
+
+    .zc-card {
+        margin: 0 auto;
+    }
+}
+
+/* Mode Gelap */
+[data-theme="dark"] .zc-card {
+    background-color: vars.$gray-dark;
+    color: vars.$light-gray;
+    border-color: vars.$gray-dark;
+
+    .zc-card-header,
+    .zc-card-footer {
+        background-color: vars.$dark-gray;
+        color: vars.$light-gray;
+    }
+}
+
+/* Status */
+.zc-card.success {
+    border-color: vars.$success-color;
+    background-color: color.adjust(vars.$success-color, $lightness: 90%);
+    color: vars.$success-dark;
+
+    &:hover {
+        background-color: color.adjust(vars.$success-color, $lightness: 80%);
+    }
+}
+
+.zc-card.error {
+    border-color: vars.$danger-color;
+    background-color: color.adjust(vars.$danger-color, $lightness: 90%);
+    color: vars.$danger-dark;
+
+    &:hover {
+        background-color: color.adjust(vars.$danger-color, $lightness: 80%);
+    }
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.zc-card-tabs {
+    display: flex;
+    flex-direction: column;
+
+    .tabs-header {
+        display: flex;
+        border-bottom: 1px solid vars.$border-color;
+
+        button {
+            flex: 1;
+            padding: vars.$spacing-sm;
+            background: none;
+            border: none;
+            color: vars.$text-color;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+
+            &:hover {
+                background: vars.$gray-light;
+            }
+
+            &.active {
+                border-bottom: 2px solid vars.$primary-color;
+                font-weight: vars.$font-weight-bold;
+                color: vars.$primary-color;
+            }
+        }
+    }
+
+    .tabs-content {
+        padding: vars.$spacing-md;
+    }
 }
