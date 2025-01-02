@@ -1,32 +1,136 @@
-@use "../abstracts/variables" as variables;
+@use "../abstracts/variables" as vars;
 
 .zc-breadcrumb {
     display: flex;
     flex-wrap: wrap;
     padding: 0.75rem 1rem;
     list-style: none;
-    background-color: #e9ecef;
+    background-color: vars.$light-gray;
     border-radius: 0.25rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &.collapsible {
+        max-width: 200px;
+        overflow: hidden;
+        position: relative;
+
+        &.expanded {
+            max-width: none;
+            white-space: normal;
+        }
+
+        .zc-breadcrumb-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: vars.$light-gray;
+            color: vars.$primary-color;
+            border: none;
+            padding: 0.25rem;
+            cursor: pointer;
+            border-radius: vars.$border-radius;
+        }
+    }
+
+    &.shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &.outline {
+        border: 1px solid vars.$primary-color;
+    }
+
+    @media (max-width: vars.$breakpoint-sm) {
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: vars.$primary-color vars.$light-gray;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: vars.$primary-color;
+            border-radius: vars.$border-radius;
+        }
+    }
+
+    &.dynamically-collapsed {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .zc-breadcrumb-item {
+            &:not(:last-child) {
+                display: none; // Item selain terakhir disembunyikan
+            }
+        }
+
+        &.expanded {
+            max-width: none;
+            overflow: visible;
+
+            .zc-breadcrumb-item {
+                display: inline-flex; // Kembalikan semua item saat expand
+            }
+        }
+    }
 }
 
 .zc-breadcrumb-item {
     margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+
+    i {
+        font-size: 0.875rem;
+        color: inherit;
+    }
+
+    & + .zc-breadcrumb-item::before {
+        content: "/";
+        margin-right: 0.5rem;
+        color: vars.$gray;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    &:hover + .zc-breadcrumb-item::before {
+        transform: scale(1.2);
+        color: vars.$primary-color;
+    }
+
+    &.active {
+        color: vars.$gray;
+    }
+
+    &:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -1.5rem;
+        left: 0;
+        background-color: vars.$dark-gray;
+        color: vars.$white;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        border-radius: vars.$border-radius;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+        z-index: 10;
+    }
+
+    &:focus {
+        outline: 2px solid vars.$primary-color;
+        outline-offset: 2px;
+    }
 }
 
-.zc-breadcrumb-item + .zc-breadcrumb-item::before {
-    content: "/";
-    margin-right: 0.5rem;
-    color: #6c757d;
-}
-
-.zc-breadcrumb-item.active {
-    color: #6c757d;
-}
-
-/* Separator Variasi */
+/* Separator Variations */
 .zc-breadcrumb.separator-arrow .zc-breadcrumb-item + .zc-breadcrumb-item::before {
     content: "→";
 }
@@ -35,7 +139,75 @@
     content: "•";
 }
 
-.zc-breadcrumb-item + .zc-breadcrumb-item:hover::before {
-    text-decoration: underline;
-    color: variables.$primary-color;
+.zc-breadcrumb.separator-double-slash .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "//";
+}
+
+.zc-breadcrumb.separator-bullet .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "•";
+}
+
+.zc-breadcrumb.separator-pipe .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+    content: "|";
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .zc-breadcrumb {
+    background-color: vars.$dark-gray;
+    color: vars.$light-gray;
+
+    .zc-breadcrumb-item {
+        color: vars.$light-gray;
+
+        &:hover {
+            color: vars.$primary-color;
+        }
+
+        &.active {
+            color: vars.$secondary-color;
+        }
+
+        & + .zc-breadcrumb-item::before {
+            color: vars.$light-gray;
+        }
+    }
+}
+
+/* Animations */
+.zc-breadcrumb.collapsible {
+    transition: max-width 0.5s ease;
+
+    &.expanded {
+        transition: max-width 0.5s ease-in;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: vars.$breakpoint-md) {
+    .zc-breadcrumb {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .zc-breadcrumb-item {
+        margin-bottom: vars.$spacing-sm;
+
+        & + .zc-breadcrumb-item::before {
+            content: none; // Hilangkan separator
+        }
+    }
+}
+
+/* Sass Loop for Separator Variations */
+$separators: (
+    "slash": "/",
+    "arrow": "→",
+    "dot": "•",
+    "pipe": "|"
+);
+
+@each $name, $char in $separators {
+    .zc-breadcrumb.separator-#{$name} .zc-breadcrumb-item + .zc-breadcrumb-item::before {
+        content: "#{$char}";
+    }
 }
