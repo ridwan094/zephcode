@@ -1,24 +1,157 @@
+@use '../abstracts/variables' as vars;
+@use 'sass:color';
+
 .zc-alert {
-    padding: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
+    padding: vars.$spacing-unit;
+    border: vars.$border-width solid transparent;
+    border-radius: vars.$border-radius;
+    margin-bottom: vars.$spacing-unit;
+    display: flex;
+    align-items: flex-start; // Mendukung multiline
+    gap: vars.$spacing-sm;
+    animation: fadeIn vars.$animation-duration-short vars.$animation-easing;
+    position: relative;
+
+    &.dismissing {
+        animation: fadeOut vars.$animation-duration-short vars.$animation-easing;
+    }
+
+    .zc-alert-content {
+        flex: 1;
+    }
 }
 
-.zc-alert-primary {
-    background-color: #cce5ff;
-    border-color: #b8daff;
-    color: #004085;
+/* Variasi warna */
+@each $color-name, $color-value in vars.$colors {
+    .zc-alert-#{$color-name} {
+        background-color: $color-value; // Warna solid
+        border-color: color.adjust($color-value, $lightness: -10%);
+        color: if($color-name == "light", vars.$text-color, vars.$white);
+
+        &:hover {
+            background-color: color.adjust($color-value, $lightness: -5%);
+            .zc-alert-icon {
+                transform: scale(1.2);
+            }
+        }
+
+        .zc-alert-icon {
+            content: if(
+                $color-name == "danger",
+                '\f071', // Exclamation
+                if(
+                    $color-name == "success",
+                    '\f058', // Check
+                    if(
+                        $color-name == "warning",
+                        '\f06a', // Warning
+                        '\f059'  // Info default
+                    )
+                )
+            );
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            transition: transform vars.$transition-fast;
+        }
+    }
 }
 
-.zc-alert-danger {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    color: #721c24;
+/* Custom Variants */
+.zc-alert-custom {
+    background-color: var(--custom-alert-bg, #f8d7da);
+    border-color: var(--custom-alert-border, #f5c6cb);
+    color: var(--custom-alert-text, #721c24);
+
+    .zc-alert-icon {
+        content: var(--custom-alert-icon, '\f059'); // Default info icon
+    }
+
+    &:hover {
+        background-color: var(--custom-alert-bg-hover, #f5b5b8);
+    }
 }
 
-.zc-alert-success {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
+/* Ukuran Alert */
+.zc-alert-sm {
+    padding: calc(vars.$spacing-unit / 2);
+    font-size: vars.$font-size-sm;
+}
+
+.zc-alert-lg {
+    padding: calc(vars.$spacing-unit * 1.5);
+    font-size: vars.$font-size-lg;
+}
+
+/* Alert yang dapat ditutup */
+.zc-alert-dismissible {
+    position: relative;
+    padding-right: 2.5rem;
+
+    .zc-alert-close {
+        position: absolute;
+        top: 50%;
+        right: vars.$spacing-sm;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: inherit;
+        font-size: vars.$font-size-lg;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity vars.$transition-fast;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/* Ikon dalam alert */
+.zc-alert-icon {
+    font-size: 1.5rem;
+    margin-right: vars.$spacing-sm;
+    align-self: center; // Posisi ikon responsif
+}
+
+/* Multiline support */
+.zc-alert-content {
+    flex-grow: 1;
+    display: block;
+    line-height: vars.$line-height;
+}
+
+/* Animasi untuk alert */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsivitas */
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-alert {
+        font-size: vars.$font-size-sm;
+        padding: vars.$spacing-sm;
+        flex-direction: column; // Ikon dan konten vertikal
+    }
+
+    .zc-alert-dismissible .zc-alert-close {
+        font-size: vars.$font-size-sm;
+    }
 }
