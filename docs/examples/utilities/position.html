@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Utilities - ZephCode</title>
+    <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        /* Styling tambahan untuk konteks visual */
+        .position-container {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-box {
+            width: 120px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sticky-box {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #ffc107;
+            font-size: 1rem;
+            z-index: 10;
+            position: sticky;
+            top: 0;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
+        <nav>
+            <a href="../../index.html">Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4">
+        <h1 class="text-primary mb-4">Position Utilities</h1>
+        <p class="mb-5 description">Explore the positioning utilities provided by ZephCode with visual examples below.</p>
+
+        <!-- Sticky Position -->
+        <section class="mb-5">
+            <h2 class="text-secondary">Sticky Position</h2>
+            <div class="sticky-box">
+                This is a sticky box. Scroll to see it stick to the top of the viewport.
+            </div>
+        </section>
+
+        <!-- Relative Position -->
+        <section class="mb-5">
+            <h2 class="text-secondary">Relative Position</h2>
+            <div class="position-container">
+                <div class="position-box bg-primary position-relative" style="top: 20px; left: 30px;">
+                    Relative
+                </div>
+            </div>
+            <p class="description">This box is positioned <span class="text-primary">relative</span> to its container.</p>
+        </section>
+
+        <!-- Absolute Position -->
+        <section class="mb-5">
+            <h2 class="text-secondary">Absolute Position</h2>
+            <div class="position-container">
+                <div class="position-box bg-success position-absolute" style="top: 20px; right: 30px;">
+                    Absolute
+                </div>
+            </div>
+            <p class="description">This box is positioned <span class="text-success">absolutely</span> relative to the nearest positioned ancestor.</p>
+        </section>
+
+        <!-- Fixed Position -->
+        <section class="mb-5">
+            <h2 class="text-secondary">Fixed Position</h2>
+            <div class="position-container">
+                <p class="description">This box remains <span class="text-danger">fixed</span> to the bottom-right of the viewport.</p>
+            </div>
+            <div class="position-box bg-danger position-fixed bottom-0 right-0 shadow-lg">
+                Fixed
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

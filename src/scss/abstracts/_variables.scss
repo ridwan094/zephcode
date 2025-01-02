@@ -1,16 +1,197 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$danger-color: #dc3545;
-$success-color: #28a745;
+@use 'sass:color';
+@use 'sass:map';
 
-$spacing-unit: 1rem;
-$border-radius: 0.25rem;
+// Primary Colors
+$primary-color: #007bff; // Blue
+$secondary-color: #6c757d; // Gray
+$success-color: #28a745; // Green
+$danger-color: #dc3545; // Red
+$warning-color: #ffc107; // Yellow
+$info-color: #17a2b8; // Cyan
+
+// Extended Colors
+$primary-light: color.adjust($primary-color, $lightness: 20%);
+$primary-dark: color.adjust($primary-color, $lightness: -20%);
+$success-light: color.adjust($success-color, $lightness: 20%);
+$success-dark: color.adjust($success-color, $lightness: -20%);
+$danger-light: color.adjust($danger-color, $lightness: 20%);
+$danger-dark: color.adjust($danger-color, $lightness: -20%);
+
+// Neutral Colors
 $white: #ffffff;
+$black: #000000;
+$gray-light: #f8f9fa;
+$gray-dark: #343a40;
+
+// Background Colors
+$background-light: $gray-light;
+$background-dark: $black;
+
+// Text Colors
 $text-color: #333;
+$text-color-light: $gray-light;
+$text-color-dark: $gray-dark;
+
+// Gradients
+$gradient-primary: linear-gradient(45deg, $primary-color, $info-color);
+$gradient-success: linear-gradient(45deg, $success-color, $gray-light);
+$gradient-warning: linear-gradient(45deg, $warning-color, $gray-light);
+
+// Borders
 $border-color: #ced4da;
+$border-width: 1px;
+$border-radius: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-sm: 0.125rem;
+
+// Spacing (Fluid Scale)
+$spacing-unit: 1rem;
+$spacing-xxs: 0.125rem;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: $spacing-unit;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// Font
+$font-family-sans: 'Arial', sans-serif;
+$font-family-serif: 'Times New Roman', serif;
+$font-family-monospace: 'Courier New', monospace;
+$font-family-base: $font-family-sans;
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-light: 300;
+$line-height: 1.5;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+$letter-spacing-wider: 0.1em;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+
+// Animations
+$animation-duration-short: 0.2s;
+$animation-duration-normal: 0.5s;
+$animation-duration-long: 1s;
+$animation-easing: ease-in-out;
 
 // Breakpoints
+$breakpoint-xs: 480px;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Transitions
+$transition-fast: 0.2s ease-in-out;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index Levels
+$z-index-default: 1;
+$z-index-dropdown: 1000;
+$z-index-modal: 1050;
+$z-index-tooltip: 1100;
+$z-index-backdrop: 1040;
+$z-index-fixed: 1030;
+$z-index-popover: 1060;
+
+// Dynamic Maps
+$colors: (
+    "primary": $primary-color,
+    "secondary": $secondary-color,
+    "success": $success-color,
+    "danger": $danger-color,
+    "warning": $warning-color,
+    "info": $info-color,
+    "light": $white,
+    "dark": $black
+);
+
+$spacings: (
+    "xxs": $spacing-xxs,
+    "xs": $spacing-xs,
+    "sm": $spacing-sm,
+    "md": $spacing-md,
+    "lg": $spacing-lg,
+    "xl": $spacing-xl,
+    "xxl": $spacing-xxl
+);
+
+$shadows: (
+    "sm": $shadow-sm,
+    "md": $shadow-md,
+    "lg": $shadow-lg,
+    "xl": $shadow-xl,
+    "none": none
+);
+
+$font-sizes: (
+    "sm": $font-size-sm,
+    "base": $font-size-base,
+    "lg": $font-size-lg
+);
+
+// Utility Mixins
+@mixin respond-to($breakpoint) {
+    @media (min-width: #{map.get((xs: $breakpoint-xs, sm: $breakpoint-sm, md: $breakpoint-md, lg: $breakpoint-lg, xl: $breakpoint-xl, xxl: $breakpoint-xxl), $breakpoint)}) {
+        @content;
+    }
+}
+
+@mixin responsive-spacing($property, $map) {
+    @each $breakpoint, $value in $map {
+        @if $breakpoint == "base" {
+            #{$property}: $value;
+        } @else {
+            @include respond-to($breakpoint) {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+@mixin responsive-font-size($map) {
+    font-size: map.get($map, "base");
+
+    @each $breakpoint, $size in $map {
+        @if $breakpoint != "base" {
+            @include respond-to($breakpoint) {
+                font-size: $size;
+            }
+        }
+    }
+}
+
+// Themes
+$theme-light: (
+    "background": $background-light,
+    "text": $text-color-dark,
+    "border": $border-color
+);
+
+$theme-dark: (
+    "background": $background-dark,
+    "text": $text-color-light,
+    "border": $gray-dark
+);
+
+// Advanced Utility Example: Dynamic Theme
+@mixin apply-theme($theme-map) {
+    background-color: map.get($theme-map, "background");
+    color: map.get($theme-map, "text");
+    border-color: map.get($theme-map, "border");
+}
+
+// Animation Utilities
+@mixin animation($name, $duration: $animation-duration-normal, $easing: $animation-easing, $iteration: 1) {
+    animation: #{$name} #{$duration} #{$easing} #{$iteration};
+}

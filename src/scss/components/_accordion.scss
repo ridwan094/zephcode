@@ -1,32 +1,152 @@
+@use '../abstracts/variables' as vars;
+
+// Base Styles for Accordion
 .zc-accordion {
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$border-radius;
+    overflow: hidden;
+    background-color: vars.$background-light;
+    transition: background-color vars.$transition-fast;
+
+    // Dark Mode Support
+    &[data-theme='dark'] {
+        background-color: vars.$background-dark;
+        border-color: vars.$gray-dark;
+
+        .zc-accordion-header {
+            background-color: vars.$gray-dark;
+            color: vars.$text-color-light;
+
+            &:hover {
+                background-color: vars.$text-color-dark;
+            }
+        }
+
+        .zc-accordion-content {
+            background-color: vars.$background-dark;
+            color: vars.$text-color-light;
+        }
+    }
 }
 
 .zc-accordion-item {
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid vars.$border-color;
+
+    &:last-child {
+        border-bottom: none; // Remove border for last item
+    }
 }
 
+// Accordion Header
 .zc-accordion-header {
-    padding: 1rem;
+    padding: vars.$spacing-md;
     cursor: pointer;
-    background-color: #f8f9fa;
-    font-weight: bold;
+    background-color: vars.$background-light;
+    font-weight: vars.$font-weight-bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color vars.$transition-fast, box-shadow vars.$transition-fast;
+    border-radius: vars.$border-radius-sm;
+    text-align: left;
+    width: 100%;
+    outline: none;
+
+    &:hover {
+        background-color: vars.$gray-light;
+        box-shadow: vars.$shadow-sm;
+    }
+
+    &:focus {
+        outline: 2px solid vars.$primary-color; // For accessibility
+        outline-offset: 2px;
+    }
+
+    &.active {
+        color: vars.$white;
+        background-color: vars.$primary-color;
+    }
+
+    // Icon inside header
+    .zc-accordion-icon {
+        font-size: vars.$font-size-sm;
+        transition: transform vars.$transition-fast;
+    }
+
+    &.active .zc-accordion-icon {
+        transform: rotate(180deg);
+    }
 }
 
-.zc-accordion-header:hover {
-    background-color: #e9ecef;
-}
-
+// Accordion Body
 .zc-accordion-content {
-    padding: 1rem;
+    padding: vars.$spacing-md;
     display: none;
-    background-color: #fff;
+    background-color: vars.$white;
+    border-top: 1px solid vars.$border-color;
+    transition: max-height vars.$transition-slow ease-in-out, opacity vars.$transition-slow ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    &.show {
+        display: block; // Fallback for older browsers
+        max-height: 500px; // Maximum height
+        opacity: 1;
+    }
 }
 
-.zc-accordion-content.show {
-    display: block;
+// Default Icon Style
+.zc-accordion-icon::before {
+    content: '\25BC'; // Default arrow icon
+    display: inline-block;
+    font-size: vars.$font-size-sm;
+    color: vars.$text-color-dark;
+    transition: transform vars.$transition-fast;
+
+    .zc-accordion-header.active & {
+        transform: rotate(180deg);
+    }
+}
+
+// Responsive Styles
+@include vars.respond-to('sm') {
+    .zc-accordion-header {
+        padding: vars.$spacing-sm;
+        font-size: vars.$font-size-sm;
+    }
+
+    .zc-accordion-content {
+        padding: vars.$spacing-sm;
+    }
+}
+
+// Accessibility Enhancements
+.zc-accordion-header:focus-visible {
+    outline: 2px solid vars.$primary-color; // Focus for keyboard navigation
+    outline-offset: 2px;
+}
+
+// Additional Customization (Merged Features)
+.zc-accordion-header {
+    font-size: 1.25rem;
+    border: none;
+
+    &:hover {
+        background-color: vars.$gray-light;
+    }
+
+    &.active {
+        color: vars.$white;
+        background-color: vars.$primary-color;
+    }
+}
+
+.zc-accordion-body {
+    border: 1px solid vars.$border-color;
+    border-top: none;
+
+    &.show {
+        display: block;
+    }
 }

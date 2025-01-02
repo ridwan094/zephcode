@@ -1,5 +1,158 @@
-* {
+@use '../abstracts/variables' as vars;
+
+/* Global Reset */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: vars.$font-family-base; // Default font from variables
+    line-height: 1.5; // Improved readability
+    color: vars.$text-color; // Default text color from variables
+    background-color: vars.$background-light; // Default background color
+}
+
+/* Images and Media */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* List Reset */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Table Reset */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    font-size: vars.$font-size-base;
+}
+
+/* Anchor Reset */
+a {
+    text-decoration: none;
+    color: inherit; // Inherit parent color
+    transition: color vars.$transition-normal; // Smooth hover transition
+}
+
+a:hover {
+    color: vars.$primary-color; // Primary color on hover
+}
+
+/* Form Elements Reset */
+button, input, textarea, select {
+    font: inherit; // Ensure font consistency
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    appearance: none; // Remove default styles in modern browsers
+}
+
+button {
+    cursor: pointer; // Ensures buttons show pointer cursor
+    background-color: vars.$primary-color;
+    color: vars.$white;
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    border-radius: vars.$border-radius;
+    transition: background-color vars.$transition-normal, transform vars.$transition-fast;
+}
+
+button:hover {
+    background-color: vars.$primary-dark; // Darker shade on hover
+    transform: scale(1.05); // Slightly enlarge on hover
+}
+
+textarea, input[type="text"],
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: vars.$spacing-xs vars.$spacing-sm;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$border-radius;
+    background-color: vars.$white;
+    color: vars.$text-color;
+    transition: border-color vars.$transition-fast;
+}
+
+textarea:focus, input:focus {
+    border-color: vars.$primary-color;
+    outline: 2px solid vars.$primary-light;
+    outline-offset: 2px;
+}
+
+/* Fieldset and Legend */
+fieldset {
+    border: 1px solid vars.$border-color;
+    margin: vars.$spacing-sm 0;
+    padding: vars.$spacing-sm;
+    border-radius: vars.$border-radius;
+}
+
+legend {
+    font-weight: vars.$font-weight-bold;
+    padding: 0 vars.$spacing-sm;
+    color: vars.$primary-color;
+}
+
+/* Accessibility Improvements */
+:focus-visible {
+    outline: 2px solid vars.$primary-color; // Accessibility improvement
+    outline-offset: 2px;
+}
+
+/* Additional Reset for Inline Elements */
+abbr, acronym {
+    border-bottom: 1px dotted vars.$text-color;
+    cursor: help;
+}
+
+mark {
+    background-color: vars.$warning-color;
+    color: vars.$black;
+}
+
+/* Code Elements */
+code, pre {
+    font-family: vars.$font-family-monospace;
+    background-color: vars.$gray-light;
+    color: vars.$text-color-dark;
+    padding: vars.$spacing-xxs vars.$spacing-xs;
+    border-radius: vars.$border-radius-sm;
+}
+
+/* Blockquote */
+blockquote {
+    margin: vars.$spacing-md 0;
+    padding: vars.$spacing-md;
+    background-color: vars.$gray-light;
+    border-left: 4px solid vars.$primary-color;
+    color: vars.$text-color-dark;
+    font-style: italic;
+}
+
+/* Responsive Typography */
+@media (min-width: vars.$breakpoint-sm) {
+    html {
+        font-size: vars.$font-size-base;
+    }
+}
+
+@media (min-width: vars.$breakpoint-md) {
+    html {
+        font-size: vars.$font-size-lg;
+    }
 }

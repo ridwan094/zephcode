@@ -4,8 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadows - ZephCode</title>
+    <title>Shadows Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <style>
+        .shadow-card {
+            width: 300px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .shadow-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .shadow-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 
 <body>
@@ -15,17 +52,17 @@
             <a href="../../index.html">Home</a>
         </nav>
     </header>
+
     <main>
         <h1>Shadows Example</h1>
-        <div class="zc-card shadow-sm" style="padding: 1rem; margin-bottom: 1rem;">
-            <p>Small Shadow</p>
-        </div>
-        <div class="zc-card shadow" style="padding: 1rem; margin-bottom: 1rem;">
-            <p>Medium Shadow</p>
-        </div>
-        <div class="zc-card shadow-lg" style="padding: 1rem; margin-bottom: 1rem;">
-            <p>Large Shadow</p>
-        </div>
+        <p>Below are examples of different shadow levels and interactive hover effects:</p>
+
+        <div class="shadow-card shadow-sm">Small Shadow</div>
+        <div class="shadow-card shadow-md">Medium Shadow</div>
+        <div class="shadow-card shadow-lg">Large Shadow</div>
+
+        <h2>Interactive Hover Shadow</h2>
+        <div class="shadow-card shadow-md shadow-hover">Hover Shadow</div>
     </main>
 </body>
 

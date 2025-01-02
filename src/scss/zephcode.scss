@@ -24,6 +24,9 @@
 @use "components/sidebar";
 @use "components/timeline";
 @use "components/stepper";
+@use "components/spinner";
+@use "components/wizard";
+
 
 @use "layout/grid";
 @use "layout/navbar";
@@ -36,3 +39,5 @@
 @use "utilities/border";
 @use "utilities/typography" as utilities-typography;
 @use "utilities/zindex";
+@use "utilities/position";
+

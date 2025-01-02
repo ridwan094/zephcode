@@ -1,5 +1,110 @@
+@use '../abstracts/variables' as vars;
+@use 'sass:map'; // Memastikan penggunaan map namespace
+
+/* Typography Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #333;
+  font-family: vars.$font-family-base; // Default font
+  font-size: vars.$font-size-base; // Base font size
+  color: vars.$text-color; // Default text color
+  line-height: vars.$line-height; // Base line height
+
+  @include vars.respond-to('sm') {
+    font-size: vars.$font-size-sm;
+  }
+
+  @include vars.respond-to('lg') {
+    font-size: vars.$font-size-lg;
+  }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: vars.$font-family-sans;
+  font-weight: vars.$font-weight-bold;
+  line-height: vars.$line-height;
+  color: vars.$text-color-dark;
+  margin-bottom: vars.$spacing-sm;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Paragraphs */
+p {
+  margin-bottom: vars.$spacing-md;
+  color: vars.$text-color;
+}
+
+p.lead {
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-light;
+  line-height: vars.$line-height;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: vars.$spacing-lg;
+  margin-bottom: vars.$spacing-md;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: vars.$spacing-xs;
+}
+
+/* Links */
+a {
+  color: vars.$primary-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: vars.$primary-dark;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  font-style: italic;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  margin: vars.$spacing-md 0;
+  border-left: 4px solid vars.$primary-color;
+  background-color: vars.$background-light;
+  color: vars.$text-color-dark;
+
+  footer {
+    font-size: vars.$font-size-sm;
+    color: vars.$text-color;
+  }
+}
+
+/* Small Text */
+small {
+  font-size: vars.$font-size-sm;
+  color: vars.$text-color-light;
+}
+
+/* Responsive Text */
+.responsive-text {
+  font-size: vars.$font-size-base;
+
+  @include vars.respond-to('sm') {
+    font-size: vars.$font-size-sm;
+  }
+
+  @include vars.respond-to('lg') {
+    font-size: vars.$font-size-lg;
+  }
 }

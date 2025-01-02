@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as variables;
+
 .text-left {
     text-align: left;
 }
@@ -20,4 +22,28 @@
 
 .text-capitalize {
     text-transform: capitalize;
+}
+
+.text-primary {
+    color: variables.$primary-color !important;
+}
+
+.text-secondary {
+    color: variables.$secondary-color !important;
+}
+
+.text-success {
+    color: variables.$success-color !important;
+}
+
+.text-danger {
+    color: variables.$danger-color !important;
+}
+
+.text-warning {
+    color: variables.$warning-color !important;
+}
+
+.text-info {
+    color: variables.$info-color !important;
 }
