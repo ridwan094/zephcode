@@ -93,22 +93,22 @@
 }
 
 /* Badge Counter */
+.notification {
+    position: relative;
+    display: inline-block;
+}
+
 .zc-badge-counter {
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
-    background-color: vars.$danger-color;
-    color: vars.$white;
-    border-radius: 50%;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem; // Ganti dengan nilai langsung
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 0.65rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 1.5rem;
-    height: 1.5rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
