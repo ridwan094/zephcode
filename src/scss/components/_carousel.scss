@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as variables;
 
+/* Base Carousel Styles */
 .zc-carousel {
     position: relative;
     display: flex;
@@ -10,11 +11,17 @@
     border: 1px solid variables.$border-color;
     border-radius: variables.$border-radius;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        padding: 1rem;
+    }
 }
 
+/* Carousel Item */
 .zc-carousel-item {
     flex: 0 0 100%;
-    transition: transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease;
     opacity: 0;
     transform: translateX(100%);
     text-align: center;
@@ -22,8 +29,14 @@
     font-size: 1.25rem;
     background-color: variables.$white;
     color: variables.$text-color;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+        font-size: 1rem;
+    }
 }
 
+/* Active Item */
 .zc-carousel-item.active {
     opacity: 1;
     transform: translateX(0);
@@ -39,6 +52,18 @@
     opacity: 0;
 }
 
+/* Fade Animation (Optional) */
+.zc-carousel-item.fade {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.zc-carousel-item.fade.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Carousel Controls */
 .zc-carousel-control {
     position: absolute;
     top: 50%;
@@ -52,20 +77,41 @@
     z-index: 10;
     border-radius: variables.$border-radius;
     transition: background-color 0.3s ease-in-out;
-}
 
-.zc-carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    &:focus {
+        outline: 2px solid variables.$primary-color;
+        outline-offset: 2px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 .zc-carousel-control-prev {
     left: 1rem;
+
+    [dir="rtl"] & {
+        right: 1rem;
+        left: auto;
+    }
 }
 
 .zc-carousel-control-next {
     right: 1rem;
+
+    [dir="rtl"] & {
+        left: 1rem;
+        right: auto;
+    }
 }
 
+/* Carousel Indicators */
 .zc-carousel-indicators {
     position: absolute;
     bottom: 1rem;
@@ -83,12 +129,47 @@
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
+
+    &:hover,
+    &.active {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    &:focus {
+        outline: 2px solid variables.$primary-color;
+        outline-offset: 2px;
+    }
+
+    @media (max-width: 768px) {
+        width: 8px;
+        height: 8px;
+    }
 }
 
-.zc-carousel-indicator.active {
-    background-color: rgba(0, 0, 0, 0.8);
+/* Lazy Loading (Optional) */
+.zc-carousel-item img.lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.zc-carousel-indicator:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.zc-carousel-item img.lazy-load.loaded {
+    opacity: 1;
+}
+
+/* Advanced Indicator with Progress Bar (Optional) */
+.zc-carousel-indicator-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: rgba(0, 0, 0, 0.8);
+        transition: width 0.6s ease-in-out;
+    }
 }
