@@ -1,17 +1,141 @@
+@use '../abstracts/variables' as vars;
+@use 'sass:color';
+
 .zc-badge {
     display: inline-block;
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     font-weight: 700;
-    color: #fff;
-    background-color: #007bff;
+    color: vars.$white;
+    background-color: vars.$primary-color;
     border-radius: 0.25rem;
+    text-align: center;
+
+    &:hover {
+        background-color: color.scale(vars.$primary-color, $lightness: 10%);
+    }
+
+    &:active {
+        background-color: color.scale(vars.$primary-color, $lightness: -10%);
+    }
+
+    @media (max-width: vars.$breakpoint-md) {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
 }
 
 .zc-badge-danger {
-    background-color: #dc3545;
+    background-color: vars.$danger-color;
+
+    &:hover {
+        background-color: color.scale(vars.$danger-color, $lightness: -10%);
+    }
 }
 
 .zc-badge-success {
-    background-color: #28a745;
+    background-color: vars.$success-color;
+
+    &:hover {
+        background-color: color.scale(vars.$success-color, $lightness: -10%);
+    }
+}
+
+.zc-badge-secondary {
+    background-color: vars.$secondary-color;
+
+    &:hover {
+        background-color: color.scale(vars.$secondary-color, $lightness: -10%);
+    }
+}
+
+/* Variasi */
+.zc-badge-outline {
+    color: vars.$primary-color;
+    background-color: transparent;
+    border: 1px solid vars.$primary-color;
+
+    &:hover {
+        background-color: color.scale(vars.$primary-color, $lightness: 90%);
+    }
+}
+
+.zc-badge-rounded {
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+.zc-badge-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Badge dengan Icon */
+.zc-badge-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+        font-size: 1rem;
+    }
+}
+
+/* Badge Gradient */
+.zc-badge-gradient {
+    background: linear-gradient(45deg, vars.$primary-color, vars.$secondary-color);
+    color: vars.$white;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
+/* Badge Counter */
+.zc-badge-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: vars.$danger-color;
+    color: vars.$white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem; // Ganti dengan nilai langsung
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge Pulse Animation */
+@keyframes badge-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(vars.$primary-color, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(vars.$primary-color, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(vars.$primary-color, 0);
+    }
+}
+
+.zc-badge-pulse {
+    animation: badge-pulse 1.5s infinite;
+}
+
+/* Responsivitas */
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
 }
