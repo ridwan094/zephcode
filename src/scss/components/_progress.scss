@@ -4,11 +4,130 @@
     background-color: #e9ecef;
     border-radius: 0.25rem;
     overflow: hidden;
+    position: relative;
+
+    /* Variasi Ukuran */
+    &.zc-progress-sm {
+        height: 0.75rem;
+    }
+
+    &.zc-progress-lg {
+        height: 1.5rem;
+    }
+
+    /* Responsivitas */
+    @media (max-width: 576px) {
+        height: 0.5rem;
+    }
 }
 
 .zc-progress-bar {
     height: 100%;
     background-color: #007bff;
-    width: 50%; /* Example default width */
+    width: 50%; /* Default width */
     transition: width 0.6s ease;
+
+    /* Variasi Warna */
+    &.zc-progress-success {
+        background-color: #28a745;
+    }
+
+    &.zc-progress-warning {
+        background-color: #ffc107;
+    }
+
+    &.zc-progress-danger {
+        background-color: #dc3545;
+    }
+
+    &.zc-progress-info {
+        background-color: #17a2b8;
+    }
+
+    /* Gradient Warna */
+    &.zc-progress-gradient {
+        background: linear-gradient(to right, #007bff, #17a2b8);
+    }
+
+    /* Efek Striped */
+    &.striped {
+        background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.15) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0.15) 75%,
+            transparent 75%,
+            transparent
+        );
+        background-size: 1rem 1rem;
+    }
+
+    &.animated {
+        animation: progress-bar-stripes 1s linear infinite;
+    }
+
+    /* RTL Support */
+    &.rtl {
+        direction: rtl;
+    }
+}
+
+/* Keyframes untuk efek animasi */
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 1rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+/* Label untuk Progress */
+.zc-progress-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.875rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Progress Bar Multi-Layer */
+.zc-progress-multi {
+    display: flex;
+
+    .zc-progress-bar {
+        border-radius: 0;
+        &:first-child {
+            border-top-left-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+        &:last-child {
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+    }
+}
+
+/* Tooltip */
+.zc-progress-tooltip {
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    /* Tampilkan tooltip saat hover */
+    .zc-progress:hover & {
+        opacity: 1;
+    }
 }
