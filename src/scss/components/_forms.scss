@@ -35,6 +35,16 @@
     margin-right: 0.5rem;
 }
 
+.zc-form-check.is-valid .zc-form-check-input {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.zc-form-check.is-invalid .zc-form-check-input {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
 /* Custom File Input */
 .zc-form-file {
     position: relative;
@@ -87,6 +97,91 @@
     color: #007bff;
 }
 
+/* Inline Form */
+.zc-form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.zc-form-inline .zc-form-label {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+}
+
+/* Toggle Switch */
+.zc-form-switch {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.25rem;
+}
+
+.zc-form-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.zc-form-switch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ced4da;
+    border-radius: 1.25rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.zc-form-switch span:before {
+    position: absolute;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    left: 0.125rem;
+    bottom: 0.125rem;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zc-form-switch input:checked + span {
+    background-color: #007bff;
+}
+
+.zc-form-switch input:checked + span:before {
+    transform: translateX(1.25rem);
+}
+
+/* Helper Text and Error Message */
+.zc-form-helper {
+    display: block;
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.zc-form-error {
+    display: block;
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.25rem;
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+    .zc-form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .zc-form-inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 /* Validasi */
 .is-valid {
     border-color: #28a745 !important;
@@ -102,4 +197,55 @@
 
 .is-invalid:focus {
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Grid System for Forms */
+.zc-form-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+    .zc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive and Thematic Variables */
+:root {
+    --form-bg: #fff;
+    --form-border: #ced4da;
+    --form-focus-border: #80bdff;
+    --form-focus-shadow: rgba(0, 123, 255, 0.25);
+    --form-label-color: #212529;
+    --form-placeholder: #6c757d;
+}
+
+html[data-theme="dark"] {
+    --form-bg: #343a40;
+    --form-border: #495057;
+    --form-focus-border: #007bff;
+    --form-focus-shadow: rgba(0, 123, 255, 0.5);
+    --form-label-color: #f8f9fa;
+    --form-placeholder: #ced4da;
+}
+
+.zc-form-control {
+    background-color: var(--form-bg);
+    color: var(--form-label-color);
+    border-color: var(--form-border);
+}
+
+.zc-form-control::placeholder {
+    color: var(--form-placeholder);
+}
+
+.zc-form-control:focus {
+    border-color: var(--form-focus-border);
+    box-shadow: 0 0 0 0.2rem var(--form-focus-shadow);
+}
+
+.zc-form-label {
+    color: var(--form-label-color);
 }
