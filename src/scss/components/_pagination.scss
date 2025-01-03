@@ -4,10 +4,32 @@
     padding: 0;
     margin: 1rem 0;
     justify-content: center;
+
+    /* Variasi Posisi */
+    &.zc-pagination-start {
+        justify-content: flex-start;
+    }
+    &.zc-pagination-end {
+        justify-content: flex-end;
+    }
+    &.zc-pagination-space {
+        justify-content: space-between;
+    }
+
+    /* Responsivitas */
+    @media (max-width: 576px) {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
 }
 
 .zc-pagination-item {
     margin: 0 0.25rem;
+
+    /* Responsivitas */
+    @media (max-width: 576px) {
+        margin: 0;
+    }
 }
 
 .zc-pagination-link {
@@ -17,11 +39,94 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+    &:hover,
+    &.active {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+
+    /* Animasi Hover */
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
-.zc-pagination-link:hover,
-.zc-pagination-link.active {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
+/* Variasi Ukuran */
+.zc-pagination-sm .zc-pagination-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.zc-pagination-lg .zc-pagination-link {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+}
+
+/* Tema */
+.zc-pagination-success .zc-pagination-link {
+    color: #28a745;
+    border-color: #c3e6cb;
+
+    &:hover,
+    &.active {
+        background-color: #28a745;
+        color: #fff;
+        border-color: #218838;
+    }
+}
+
+.zc-pagination-danger .zc-pagination-link {
+    color: #dc3545;
+    border-color: #f5c6cb;
+
+    &:hover,
+    &.active {
+        background-color: #dc3545;
+        color: #fff;
+        border-color: #c82333;
+    }
+}
+
+/* Loading State */
+.zc-pagination-link.loading {
+    position: relative;
+    pointer-events: none;
+    color: #6c757d;
+    border-color: #d6d8db;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #6c757d;
+        border-radius: 50%;
+        border-right-color: transparent;
+        animation: spinner 0.75s linear infinite;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Ellipsis */
+.zc-pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #6c757d;
 }
