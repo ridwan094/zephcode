@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 .zc-modal {
     position: fixed;
     top: 50%;
@@ -5,20 +7,73 @@
     transform: translate(-50%, -50%);
     width: 500px;
     max-width: 90%;
-    background-color: #fff;
-    border: 1px solid #ced4da;
+    background-color: $modal-bg;
+    border: 1px solid $modal-border;
     border-radius: 0.25rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: $modal-shadow;
     z-index: 1050;
     display: none;
+    animation: modal-fade-in 0.3s ease-out;
+
+    &.scroll {
+        max-height: 80%;
+        overflow-y: auto;
+    }
+
+    &.zoom-in {
+        animation: modal-zoom-in 0.3s ease-out;
+    }
+
+    &.slide-in {
+        animation: modal-slide-in 0.3s ease-out;
+    }
+
+    &.primary {
+        background-color: #007bff;
+        color: #fff;
+        border: 1px solid #0056b3;
+    }
+
+    &.success {
+        background-color: #28a745;
+        color: #fff;
+        border: 1px solid #1e7e34;
+    }
 }
 
 .zc-modal-header {
     padding: 1rem;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid $modal-header-border;
     font-weight: bold;
     font-size: 1.25rem;
-    background-color: #f8f9fa;
+    background-color: $modal-header-bg;
+    position: relative;
+
+    .zc-modal-icon {
+        margin-right: 0.5rem;
+        font-size: 1.25rem;
+        vertical-align: middle;
+        color: #6c757d;
+
+        &:hover {
+            color: #495057;
+        }
+    }
+}
+
+.zc-modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+
+    &:hover {
+        color: #495057;
+    }
 }
 
 .zc-modal-body {
@@ -27,7 +82,7 @@
 
 .zc-modal-footer {
     padding: 1rem;
-    border-top: 1px solid #dee2e6;
+    border-top: 1px solid $modal-header-border;
     text-align: right;
 }
 
@@ -40,12 +95,30 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1040;
     display: none;
+
+    &.show {
+        display: block;
+        animation: backdrop-fade-in 0.3s ease-out;
+    }
+
+    &.hide {
+        display: none;
+        animation: backdrop-fade-out 0.3s ease-out;
+    }
 }
 
-.zc-modal-show {
-    display: block;
+@media (max-width: 768px) {
+    .zc-modal {
+        width: 90%;
+    }
 }
 
-.zc-modal-backdrop-show {
-    display: block;
+@media (max-width: 576px) {
+    .zc-modal {
+        width: 100%;
+        height: auto;
+        max-height: 90%;
+        overflow-y: auto;
+        border-radius: 0;
+    }
 }
