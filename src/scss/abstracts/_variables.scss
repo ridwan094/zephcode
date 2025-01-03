@@ -112,6 +112,13 @@ $spinner-border-color: #e9ecef;
 $spinner-border-top-color: #007bff;
 $spinner-animation-duration: 1s;
 
+// Stepper Variables
+$stepper-line-color: $border-color;
+$stepper-active-color: $primary-color;
+$stepper-circle-size: 30px;
+$stepper-font-size: $font-size-sm;
+$stepper-font-weight-active: $font-weight-bold;
+
 // Transitions
 $transition-fast: 0.2s ease-in-out;
 $transition-normal: 0.3s ease;
@@ -125,6 +132,7 @@ $z-index-tooltip: 1100;
 $z-index-backdrop: 1040;
 $z-index-fixed: 1030;
 $z-index-popover: 1060;
+$z-index-overlay: 1070;
 
 // Dynamic Maps
 $colors: (
