@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alerts - ZephCode</title>
+    <title>Sidebar Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
@@ -47,8 +47,8 @@
             margin: 1.5rem;
         }
 
-        /* Sidebar */
-        .sidebar {
+        /* Root Sidebar */
+        .sidebar-root {
             width: 250px;
             background-color: #f8f9fa;
             padding: 1.5rem;
@@ -56,13 +56,13 @@
             border-radius: 10px;
         }
 
-        .sidebar h3 {
+        .sidebar-root h3 {
             font-size: calc(1rem + 0.2vw);
             margin-bottom: 1rem;
             color: #007bff;
         }
 
-        .sidebar a {
+        .sidebar-root a {
             display: block;
             text-decoration: none;
             margin: 0.3rem 0.2rem;
@@ -73,16 +73,46 @@
             transition: background-color 0.3s ease, transform 0.1s ease;
         }
 
-        .sidebar a:hover {
+        .sidebar-root a:hover {
             background-color: #e9ecef;
             transform: scale(1.02);
         }
 
-        .sidebar a.active {
+        .sidebar-root a.active {
             background-color: #007bff;
             color: #fff;
             font-weight: bold;
             cursor: default;
+        }
+
+        /* Sidebar in Main Content */
+        .sidebar-content {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar-content a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0;
+            color: #333;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-content a:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
         }
 
         /* Main Content */
@@ -135,16 +165,6 @@
             color: #d73a49;
         }
 
-        .zc-icon-copy {
-            font-size: 1.5rem;
-            color: #007bff;
-            transition: color 0.3s ease;
-        }
-
-        .zc-icon-copy:hover {
-            color: #0056b3;
-        }
-
         .footer {
             background-color: #f8f9fa;
             text-align: center;
@@ -169,6 +189,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="navbar">
         <div class="navbar-brand">ZephCode</div>
         <nav>
@@ -176,24 +197,25 @@
         </nav>
     </header>
 
+    <!-- Layout -->
     <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <!-- Root Sidebar -->
+        <aside class="sidebar-root">
             <h3>Components</h3>
-            <a href="../components/alerts.html" class="active">Alerts</a>
+            <a href="../components/alerts.html">Alerts</a>
             <a href="../components/accordion.html">Accordion</a>
             <a href="../components/badges.html">Badges</a>
             <a href="../components/breadcrumbs.html">Breadcrumbs</a>
             <a href="../components/buttons.html">Buttons</a>
             <a href="../components/cards.html">Cards</a>
-            <a href="../components//carousel.html">Carousel</a>
+            <a href="../components/carousel.html">Carousel</a>
             <a href="../components/dropdown.html">Dropdown</a>
             <a href="../components/forms.html">Forms</a>
             <a href="../components/modals.html">Modals</a>
             <a href="../components/offcanvas.html">Offcanvas</a>
             <a href="../components/pagination.html">Pagination</a>
             <a href="../components/progress.html">Progress Bar</a>
-            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/sidebar.html" class="active">Sidebar</a>
             <a href="../components/spinner.html">Spinner</a>
             <a href="../components/stepper.html">Stepper</a>
             <a href="../components/tables.html">Tables</a>
@@ -221,125 +243,72 @@
             <a href="../utilities/zindex.html">Z-index</a>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <h1>Alerts Example</h1>
-            <p>This example demonstrates how to use the ZephCode Alerts component.</p>
+            <h1>Sidebar Example</h1>
+            <p>This example demonstrates the usage of a sidebar component inside the main content area.</p>
 
-            <!-- Alerts Examples -->
-            <div class="zc-alert zc-alert-primary zc-alert-dismissible">
-                <i class="zc-alert-icon fas fa-info-circle"></i>
-                <span>This is a primary alert with an icon.</span>
-                <button class="zc-alert-close">&times;</button>
-            </div>
-            <div class="zc-alert zc-alert-danger zc-alert-dismissible">
-                <i class="zc-alert-icon fas fa-exclamation-triangle"></i>
-                <span>This is a danger alert with an icon.</span>
-                <button class="zc-alert-close">&times;</button>
-            </div>
-            <div class="zc-alert zc-alert-success zc-alert-dismissible">
-                <i class="zc-alert-icon fas fa-check-circle"></i>
-                <span>This is a success alert with an icon.</span>
-                <button class="zc-alert-close">&times;</button>
+            <!-- Sidebar inside Main Content -->
+            <div class="sidebar-content">
+                <h4>Sub-Menu</h4>
+                <a href="#">Overview</a>
+                <a href="#">Settings</a>
+                <a href="#">Help</a>
             </div>
 
             <section class="code-snippet">
-                <h2>CSS Snippet for Alerts</h2>
+                <h2>CSS Snippet for Sidebar Component</h2>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
                     <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
                 </div>
                 <pre id="css-snippet">
             <code>
-            <span class="selector">/* Base Alert Styles */</span>
-            <span class="selector">.zc-alert</span> {
+            <span class="selector">.zc-sidebar-component</span> {
+                <span class="property">width</span>: <span class="value">300px</span>;
+                <span class="property">background-color</span>: <span class="value">#f8f9fa</span>;
                 <span class="property">padding</span>: <span class="value">1rem</span>;
-                <span class="property">border</span>: <span class="value">1px solid transparent</span>;
-                <span class="property">border-radius</span>: <span class="value">0.25rem</span>;
+                <span class="property">border-radius</span>: <span class="value">10px</span>;
+                <span class="property">box-shadow</span>: <span class="value">0 2px 5px rgba(0, 0, 0, 0.1)</span>;
+            }
+            
+            <span class="selector">.zc-sidebar-component h3</span> {
+                <span class="property">font-size</span>: <span class="value">1.2rem</span>;
                 <span class="property">margin-bottom</span>: <span class="value">1rem</span>;
-                <span class="property">display</span>: <span class="value">flex</span>;
-                <span class="property">align-items</span>: <span class="value">center</span>;
-                <span class="property">gap</span>: <span class="value">0.5rem</span>;
-                <span class="property">animation</span>: <span class="value">fadeIn 0.3s ease-in-out</span>;
+                <span class="property">color</span>: <span class="value">#007bff</span>;
             }
             
-            <span class="selector">/* Dismissible Alerts */</span>
-            <span class="selector">.zc-alert-dismissible</span> {
-                <span class="property">position</span>: <span class="value">relative</span>;
-                <span class="property">padding-right</span>: <span class="value">2.5rem</span>;
+            <span class="selector">.zc-sidebar-component a</span> {
+                <span class="property">display</span>: <span class="value">block</span>;
+                <span class="property">text-decoration</span>: <span class="value">none</span>;
+                <span class="property">padding</span>: <span class="value">0.5rem 1rem</span>;
+                <span class="property">border-radius</span>: <span class="value">5px</span>;
+                <span class="property">color</span>: <span class="value">#333</span>;
+                <span class="property">transition</span>: <span class="value">background-color 0.3s ease, color 0.3s ease</span>;
             }
             
-            <span class="selector">.zc-alert-dismissible .zc-alert-close</span> {
-                <span class="property">position</span>: <span class="value">absolute</span>;
-                <span class="property">top</span>: <span class="value">50%</span>;
-                <span class="property">right</span>: <span class="value">1rem</span>;
-                <span class="property">transform</span>: <span class="value">translateY(-50%)</span>;
-                <span class="property">background</span>: <span class="value">none</span>;
-                <span class="property">border</span>: <span class="value">none</span>;
-                <span class="property">font-size</span>: <span class="value">1.25rem</span>;
-                <span class="property">cursor</span>: <span class="value">pointer</span>;
-                <span class="property">opacity</span>: <span class="value">0.7</span>;
-                <span class="property">transition</span>: <span class="value">opacity 0.2s ease-in-out</span>;
+            <span class="selector">.zc-sidebar-component a:hover</span> {
+                <span class="property">background-color</span>: <span class="value">#e9ecef</span>;
+                <span class="property">color</span>: <span class="value">#007bff</span>;
             }
             
-            <span class="selector">/* Primary Alert */</span>
-            <span class="selector">.zc-alert-primary</span> {
+            <span class="selector">.zc-sidebar-component a.active</span> {
                 <span class="property">background-color</span>: <span class="value">#007bff</span>;
-                <span class="property">border-color</span>: <span class="value">#0056b3</span>;
                 <span class="property">color</span>: <span class="value">#ffffff</span>;
-            }
-            
-            <span class="selector">/* Danger Alert */</span>
-            <span class="selector">.zc-alert-danger</span> {
-                <span class="property">background-color</span>: <span class="value">#dc3545</span>;
-                <span class="property">border-color</span>: <span class="value">#bd2130</span>;
-                <span class="property">color</span>: <span class="value">#ffffff</span>;
-            }
-            
-            <span class="selector">/* Success Alert */</span>
-            <span class="selector">.zc-alert-success</span> {
-                <span class="property">background-color</span>: <span class="value">#28a745</span>;
-                <span class="property">border-color</span>: <span class="value">#218838</span>;
-                <span class="property">color</span>: <span class="value">#ffffff</span>;
-            }
-            
-            <span class="selector">/* Icon Styles */</span>
-            <span class="selector">.zc-alert-icon</span> {
-                <span class="property">font-size</span>: <span class="value">1.5rem</span>;
-                <span class="property">margin-right</span>: <span class="value">0.5rem</span>;
-            }
-            
-            <span class="selector">/* Animations */</span>
-            <span class="selector">@keyframes fadeIn</span> {
-                <span class="property">from</span> {
-                    <span class="property">opacity</span>: <span class="value">0</span>;
-                    <span class="property">transform</span>: <span class="value">translateY(-10px)</span>;
-                }
-                <span class="property">to</span> {
-                    <span class="property">opacity</span>: <span class="value">1</span>;
-                    <span class="property">transform</span>: <span class="value">translateY(0)</span>;
-                }
+                <span class="property">font-weight</span>: <span class="value">bold</span>;
             }
             </code>
                 </pre>
-            </section>
+            </section>            
         </main>
     </div>
 
     <footer class="footer">
         &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
     </footer>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const closeButtons = document.querySelectorAll('.zc-alert-close');
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const alert = button.parentElement;
-                    alert.style.animation = "fadeOut 0.3s ease-in-out";
-                    setTimeout(() => alert.remove(), 300);
-                });
-            });
-
             const copyIcon = document.getElementById('copy-icon');
             const codeSnippet = document.getElementById('css-snippet');
             const copyStatus = document.getElementById('copy-status');
