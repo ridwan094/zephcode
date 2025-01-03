@@ -1,17 +1,56 @@
+@use "../abstracts/variables" as vars;
+@use "sass:color"; 
+
 .zc-spinner {
-    width: 2rem;
-    height: 2rem;
-    border: 0.25rem solid #e9ecef;
-    border-top: 0.25rem solid #007bff;
+    width: vars.$spinner-size;
+    height: vars.$spinner-size;
+    border: vars.$spinner-border-width solid vars.$spinner-border-color;
+    border-top: vars.$spinner-border-width solid vars.$spinner-border-top-color;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin vars.$spinner-animation-duration linear infinite;
+
+    // Variasi: Spinner Kecil
+    &--small {
+        width: vars.$spinner-size * 0.5;
+        height: vars.$spinner-size * 0.5;
+        border-width: vars.$spinner-border-width * 0.75;
+    }
+
+    // Variasi: Spinner Besar
+    &--large {
+        width: vars.$spinner-size * 2;
+        height: vars.$spinner-size * 2;
+        border-width: vars.$spinner-border-width * 1.5;
+    }
+
+    // Tema Gelap
+    &--dark {
+        border-color: #495057;
+        border-top-color: #343a40;
+    }
+
+    // Hover Effect
+    &:hover {
+        animation: spin vars.$spinner-animation-duration ease-in-out infinite;
+        border-top-color: color.adjust(vars.$spinner-border-top-color, $lightness: 10%);
+    }
 }
 
+// Keyframes
 @keyframes spin {
     from {
         transform: rotate(0deg);
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+// Responsivitas
+@media (max-width: 768px) {
+    .zc-spinner {
+        width: vars.$spinner-size * 0.75;
+        height: vars.$spinner-size * 0.75;
+        border-width: vars.$spinner-border-width * 0.75;
     }
 }

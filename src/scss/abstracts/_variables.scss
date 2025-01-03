@@ -104,7 +104,13 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1400px;
- 
+
+// Spinner Variables
+$spinner-size: 2rem;
+$spinner-border-width: 0.25rem;
+$spinner-border-color: #e9ecef;
+$spinner-border-top-color: #007bff;
+$spinner-animation-duration: 1s;
 
 // Transitions
 $transition-fast: 0.2s ease-in-out;
