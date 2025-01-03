@@ -6,41 +6,186 @@
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1050;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     overflow-y: auto;
+    opacity: 1;
+
+    &.hidden {
+        opacity: 0;
+    }
+
+    /* Fullscreen Mode */
+    &.fullscreen {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
+/* Left and Right Variations */
 .zc-offcanvas-left {
     left: 0;
     transform: translateX(-100%);
-}
 
-.zc-offcanvas-left.show {
-    transform: translateX(0);
+    &.show {
+        transform: translateX(0);
+    }
 }
 
 .zc-offcanvas-right {
     right: 0;
     transform: translateX(100%);
+
+    &.show {
+        transform: translateX(0);
+    }
 }
 
-.zc-offcanvas-right.show {
-    transform: translateX(0);
+/* Top and Bottom Variations */
+.zc-offcanvas-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    transform: translateY(-100%);
+
+    &.show {
+        transform: translateY(0);
+    }
 }
 
+.zc-offcanvas-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    transform: translateY(100%);
+
+    &.show {
+        transform: translateY(0);
+    }
+}
+
+/* Push Content Mode */
+.zc-offcanvas-push {
+    transition: margin-left 0.3s ease-in-out;
+
+    &.left {
+        margin-left: 250px;
+    }
+
+    &.right {
+        margin-right: 250px;
+    }
+}
+
+/* Ukuran Variasi */
+.zc-offcanvas-sm {
+    width: 200px;
+}
+
+.zc-offcanvas-lg {
+    width: 400px;
+}
+
+/* Tema */
+.zc-offcanvas-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.zc-offcanvas-light {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header */
 .zc-offcanvas-header {
     padding: 1rem;
     border-bottom: 1px solid #dee2e6;
     font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+
+    .zc-offcanvas-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:focus {
+            outline: 2px solid #007bff;
+        }
+    }
 }
 
+/* Body */
 .zc-offcanvas-body {
     padding: 1rem;
 }
 
-.zc-offcanvas-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+/* Animasi Tambahan */
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.zc-offcanvas.zoom-in {
+    animation: zoom-in 0.3s ease-in-out;
+}
+
+.zc-offcanvas.slide-up {
+    animation: slide-up 0.3s ease-in-out;
+}
+
+/* Shadow Variasi */
+.zc-offcanvas-shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zc-offcanvas-shadow-lg {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Opacity Variasi */
+.zc-offcanvas-opacity-light {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.zc-offcanvas-opacity-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .zc-offcanvas {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .zc-offcanvas {
+        height: auto;
+        max-height: 100%;
+        overflow-y: auto;
+    }
 }
