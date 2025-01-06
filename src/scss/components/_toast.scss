@@ -1,28 +1,73 @@
+@use "../abstracts/variables" as vars;
+
 .zc-toast {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 1050;
+    bottom: vars.$spacing-lg;
+    right: vars.$spacing-lg;
+    z-index: vars.$z-index-tooltip;
     min-width: 300px;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 0.25rem;
+    max-width: 400px;
+    background-color: vars.$white;
+    border: vars.$border-width solid vars.$border-color;
+    box-shadow: vars.$shadow-md;
+    padding: vars.$spacing-md;
+    border-radius: vars.$border-radius;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: vars.$spacing-sm;
     opacity: 0;
     transform: translateY(20%);
-    animation: fadeInUp 0.5s forwards;
+    animation: fadeInUp vars.$animation-duration-short forwards;
+
+    &[aria-live="assertive"] {
+        role: alert;
+    }
+
+    &.zc-toast-top-left {
+        top: vars.$spacing-lg;
+        left: vars.$spacing-lg;
+        bottom: auto;
+        right: auto;
+    }
+
+    &.zc-toast-top-right {
+        top: vars.$spacing-lg;
+        right: vars.$spacing-lg;
+        bottom: auto;
+        left: auto;
+    }
+
+    &.zc-toast-bottom-left {
+        bottom: vars.$spacing-lg;
+        left: vars.$spacing-lg;
+        top: auto;
+        right: auto;
+    }
+
+    &.zc-toast-bottom-right {
+        bottom: vars.$spacing-lg;
+        right: vars.$spacing-lg;
+        top: auto;
+        left: auto;
+    }
+
+    &.zc-toast-center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.zc-toast-auto {
+        animation: fadeInUp vars.$animation-duration-short forwards, fadeOut vars.$animation-duration-short ease-in-out vars.$animation-duration-long;
+    }
 }
 
-.zc-toast .zc-toast-icon {
+.zc-toast-icon {
     font-size: 1.5rem;
 }
 
 .zc-toast-title {
-    font-weight: bold;
+    font-weight: vars.$font-weight-bold;
     margin-right: auto;
 }
 
@@ -31,30 +76,45 @@
     border: none;
     font-size: 1.25rem;
     cursor: pointer;
+    color: vars.$text-color-dark;
+
+    &:hover {
+        color: vars.$danger-color;
+    }
 }
 
 .zc-toast-success {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
+    background-color: vars.$success-color-light;
+    border-color: vars.$success-color;
+    color: vars.$success-color-dark;
 }
 
 .zc-toast-danger {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    color: #721c24;
+    background-color: vars.$danger-color-light;
+    border-color: vars.$danger-color;
+    color: vars.$danger-color-dark;
 }
 
 .zc-toast-info {
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-    color: #0c5460;
+    background-color: vars.$info-color-light;
+    border-color: vars.$info-color;
+    color: vars.$info-color-dark;
 }
 
 .zc-toast-warning {
-    background-color: #fff3cd;
-    border-color: #ffeeba;
-    color: #856404;
+    background-color: vars.$warning-color-light;
+    border-color: vars.$warning-color;
+    color: vars.$warning-color-dark;
+}
+
+.zc-toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: vars.$primary-color;
+    animation: progressBar vars.$animation-duration-long linear;
 }
 
 @keyframes fadeInUp {
@@ -68,23 +128,39 @@
     }
 }
 
-.zc-toast.top-left {
-    top: 1rem;
-    left: 1rem;
-    bottom: auto;
-    right: auto;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20%);
+    }
 }
 
-.zc-toast.top-right {
-    top: 1rem;
-    right: 1rem;
-    bottom: auto;
-    left: auto;
+@keyframes progressBar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
 }
 
-.zc-toast.bottom-left {
-    bottom: 1rem;
-    left: 1rem;
-    top: auto;
-    right: auto;
+// Hover interaction to pause animation
+.zc-toast:hover {
+    animation-play-state: paused;
+
+    .zc-toast-progress {
+        animation-play-state: paused;
+    }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-toast {
+        width: 90%;
+        min-width: auto;
+    }
 }

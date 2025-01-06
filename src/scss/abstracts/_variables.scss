@@ -16,6 +16,10 @@ $success-light: color.adjust($success-color, $lightness: 20%);
 $success-dark: color.adjust($success-color, $lightness: -20%);
 $danger-light: color.adjust($danger-color, $lightness: 20%);
 $danger-dark: color.adjust($danger-color, $lightness: -20%);
+$info-color-light: color.adjust($info-color, $lightness: 20%);
+$info-color-dark: color.adjust($info-color, $lightness: -20%);
+$warning-color-light: color.adjust($warning-color, $lightness: 20%);
+$warning-color-dark: color.adjust($warning-color, $lightness: -20%);
 
 // Neutral Colors
 $white: #ffffff;
