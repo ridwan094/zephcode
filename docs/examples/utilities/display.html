@@ -4,9 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display - ZephCode</title>
+    <title>Display Utilities</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* CSS Snippet Section */
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        /* Custom Styling for Examples */
         .example-box {
             width: 100px;
             height: 100px;
@@ -15,13 +144,105 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1rem;
+            margin: 1rem;
             border-radius: 4px;
+            border: 2px solid transparent;
+        }
+
+        .example-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 1.5rem;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-d-none {
+            border-color: #dc3545; /* Red border for none */
+            background-color: #f8d7da; /* Light red background */
+            color: #dc3545;
+        }
+
+        .zc-d-inline {
+            border-color: #ffc107; /* Yellow border for inline */
+            background-color: #fff3cd; /* Light yellow background */
+            color: #856404;
+        }
+
+        .zc-d-block {
+            border-color: #28a745; /* Green border for block */
+            background-color: #d4edda; /* Light green background */
+            color: #155724;
+        }
+
+        .zc-d-flex {
+            border-color: #007bff; /* Blue border for flex */
+            background-color: #cce5ff; /* Light blue background */
+            color: #004085;
+        }
+
+        .zc-d-inline-block {
+            border-color: #17a2b8; /* Cyan border for inline-block */
+            background-color: #d1ecf1; /* Light cyan background */
+            color: #0c5460;
+        }
+
+        .zc-d-grid {
+            border-color: #6f42c1;
+            background-color: #e9d8f3; 
+            color: #4a148c;
+        }
+
+        .responsive-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
         <nav>
@@ -29,26 +250,136 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Display Utilities</h1>
-        <p>Examples of how to use the display utility classes in ZephCode.</p>
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <section>
-            <h2>Basic Display Classes</h2>
-            <div class="example-box d-none">
-                d-none
-            </div>
-            <div class="example-box d-inline">
-                d-inline
-            </div>
-            <div class="example-box d-block">
-                d-block
-            </div>
-            <div class="example-box d-flex">
-                d-flex
-            </div>
-        </section>
-    </main>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
+
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html" class="active">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Display Utilities</h1>
+            <p>Examples of how to use the display utility classes in ZephCode.</p>
+
+            <!-- Basic Display Examples -->
+            <section>
+                <h2>Basic Display Classes</h2>
+                <div class="responsive-container">
+                    <div class="example-box zc-d-none">zc-d-none</div>
+                    <div class="example-box zc-d-inline">zc-d-inline</div>
+                    <div class="example-box zc-d-block">zc-d-block</div>
+                    <div class="example-box zc-d-flex">zc-d-flex</div>
+                    <div class="example-box zc-d-inline-block">zc-d-inline-block</div>
+                    <div class="example-box zc-d-grid">zc-d-grid</div>
+                </div>
+            </section>
+
+            <!-- Responsive Display Examples -->
+            <section>
+                <h2>Responsive Display Classes</h2>
+                <div class="responsive-container">
+                    <div class="example-box zc-d-sm-none">zc-d-sm-none</div>
+                    <div class="example-box zc-d-md-block">zc-d-md-block</div>
+                    <div class="example-box zc-d-lg-flex">zc-d-lg-flex</div>
+                    <div class="example-box zc-d-xl-inline">zc-d-xl-inline</div>
+                </div>
+            </section>
+
+            <!-- CSS Snippet -->
+            <section class="code-snippet">
+                <h2>CSS Snippet for Display Utilities</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy"></i>
+                    <span id="copy-status"></span>
+                </div>
+                <pre id="css-snippet">
+<code>
+    <span class="selector">.zc-d-none</span> {
+        <span class="property">display</span>: <span class="value">none</span>;
+    }
+    
+    <span class="selector">.zc-d-inline</span> {
+        <span class="property">display</span>: <span class="value">inline</span>;
+    }
+    
+    <span class="selector">.zc-d-flex</span> {
+        <span class="property">display</span>: <span class="value">flex</span>;
+    }
+    
+    <span class="selector">.zc-d-grid</span> {
+        <span class="property">display</span>: <span class="value">grid</span>;
+    }
+</code>
+                </pre>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            copyIcon.addEventListener('click', () => {
+                navigator.clipboard.writeText(codeSnippet.innerText.trim())
+                    .then(() => {
+                        copyStatus.textContent = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+                    })
+                    .catch(err => {
+                        copyStatus.textContent = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
