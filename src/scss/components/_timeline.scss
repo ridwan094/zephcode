@@ -1,27 +1,101 @@
+@use "../abstracts/variables" as vars;
+
 .zc-timeline {
     position: relative;
-    padding-left: 2rem;
-    border-left: 2px solid #dee2e6;
+    padding-left: vars.$spacing-lg;
+    border-left: vars.$border-width solid vars.$border-color;
     list-style: none;
+
+    // Responsiveness
+    @media (max-width: vars.$breakpoint-sm) {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        border-left: none;
+    }
+
+    &.zc-timeline-horizontal {
+        display: flex;
+        flex-direction: row;
+        border-left: none;
+        border-top: vars.$border-width solid vars.$border-color;
+    }
+
+    &.zc-timeline-dark {
+        border-left: vars.$border-width solid vars.$gray-dark;
+
+        .zc-timeline-item::before {
+            background-color: vars.$gray-dark;
+            border-color: vars.$gray;
+        }
+
+        .zc-timeline-content {
+            color: vars.$text-color-light;
+        }
+    }
 }
 
 .zc-timeline-item {
     position: relative;
-    margin-bottom: 1.5rem;
-}
+    margin-bottom: vars.$spacing-md;
 
-.zc-timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -9px;
-    top: 0;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #007bff;
-    border: 2px solid #fff;
+    @media (max-width: vars.$breakpoint-sm) {
+        display: flex;
+        align-items: center;
+        margin-bottom: vars.$spacing-sm;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: calc(-1 * vars.$spacing-sm); // Perbaikan namespace
+        top: 0;
+        width: vars.$spacing-md;
+        height: vars.$spacing-md;
+        border-radius: 50%;
+        background-color: vars.$primary-color;
+        border: vars.$border-width solid vars.$white;
+
+        @media (max-width: vars.$breakpoint-sm) {
+            position: static;
+            margin-right: vars.$spacing-sm;
+        }
+    }
+
+    &.zc-timeline-completed::before {
+        background-color: vars.$success-color;
+    }
+
+    &.zc-timeline-pending::before {
+        background-color: vars.$warning-color;
+    }
 }
 
 .zc-timeline-content {
-    margin-left: 1.5rem;
+    margin-left: vars.$spacing-lg;
+
+    @media (max-width: vars.$breakpoint-sm) {
+        margin-left: 0;
+    }
+
+    // Hover interaction
+    &:hover {
+        color: vars.$primary-dark;
+    }
+}
+
+// Animations
+@keyframes timelineFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.zc-timeline-item {
+    animation: timelineFadeIn vars.$animation-duration-short ease-in-out;
 }
