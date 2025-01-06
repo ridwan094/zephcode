@@ -1,28 +1,152 @@
+@use "../abstracts/variables" as vars;
+
 .zc-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
-    color: #212529;
+    margin-bottom: vars.$spacing-md;
+    color: vars.$text-color;
+
+    &.zc-table-striped tbody tr:nth-of-type(odd) {
+        background-color: vars.$gray-light;
+    }
+
+    &.zc-table-bordered {
+        border: vars.$border-width solid vars.$border-color;
+    }
+
+    &.zc-table-dark {
+        color: vars.$text-color-light;
+        background-color: vars.$gray-dark;
+
+        th, td {
+            border: vars.$border-width solid vars.$gray;
+        }
+
+        thead th {
+            background-color: vars.$black;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: vars.$gray;
+        }
+    }
+
+    &.zc-table-hover tbody tr:hover {
+        background-color: vars.$gray;
+        transition: background-color vars.$transition-fast;
+    }
+
+    &.zc-table-compact th,
+    &.zc-table-compact td {
+        padding: vars.$spacing-xs;
+    }
+
+    &.zc-table-bordered-double {
+        border: calc(vars.$border-width * 2) solid vars.$border-color;
+
+        th, td {
+            border: calc(vars.$border-width * 2) solid vars.$border-color;
+        }
+    }
+
+    &.zc-table-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; 
+        gap: vars.$spacing-sm;
+
+        th, td {
+            border: none;
+        }
+    }
+
+    &.zc-table-dark-mode {
+        color: vars.$text-color-light;
+        background-color: vars.$black;
+
+        th, td {
+            border-color: vars.$gray-dark;
+        }
+
+        thead th {
+            background-color: vars.$gray-dark;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: vars.$gray;
+        }
+
+        tbody tr:hover {
+            background-color: vars.$primary-dark;
+        }
+    }
 }
 
 .zc-table th,
 .zc-table td {
-    padding: 0.75rem;
+    padding: vars.$spacing-sm;
     vertical-align: top;
-    border: 1px solid #dee2e6;
+    border: vars.$border-width solid vars.$border-color;
 }
 
 .zc-table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-    background-color: #f8f9fa;
-    font-weight: bold;
+    border-bottom: calc(vars.$border-width * 2) solid vars.$border-color;
+    background-color: vars.$gray-light;
+    font-weight: vars.$font-weight-bold;
 }
 
 .zc-table tbody tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
+    background-color: vars.$gray-light;
 }
 
 .zc-table-hover tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: vars.$gray;
+    transition: background-color vars.$transition-fast;
+}
+
+.zc-table tbody tr.active {
+    background-color: vars.$primary-light;
+    color: vars.$text-color-light;
+}
+
+.zc-table th.sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 1.5rem;
+
+    &::after {
+        content: '\25B4';
+        position: absolute;
+        right: 0.5rem;
+        font-size: 0.8rem;
+        opacity: 0.6;
+        transform: rotate(0deg);
+        transition: transform vars.$transition-fast;
+    }
+
+    &.desc::after {
+        transform: rotate(180deg);
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
+// Responsiveness
+@media (max-width: vars.$breakpoint-md) {
+    .zc-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .zc-table th, .zc-table td {
+        white-space: nowrap;
+    }
+
+    .zc-table th.hidden-sm, .zc-table td.hidden-sm {
+        display: none;
+    }
 }
