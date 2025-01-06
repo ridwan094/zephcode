@@ -7,6 +7,105 @@
     <title>Shadows Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
     <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .zc-navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zc-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Shadows */
         .shadow-card {
             width: 300px;
             height: 150px;
@@ -17,35 +116,109 @@
             border-radius: 10px;
             font-size: 1rem;
             font-weight: bold;
-            color: #333;
             text-align: center;
-            background-color: #fff;
         }
 
-        .shadow-sm {
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        .shadow-card.zc-shadow-sm {
+            background-color: #f8f9fa;
+            color: #6c757d;
         }
 
-        .shadow-md {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .shadow-card.zc-shadow {
+            background-color: #ffffff;
+            color: #343a40;
         }
 
-        .shadow-lg {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        .shadow-card.zc-shadow-lg {
+            background-color: #f1f3f5;
+            color: #495057;
         }
 
-        .shadow-hover {
-            transition: all 0.3s ease-in-out;
+        .shadow-card.zc-shadow-primary {
+            background-color: #007bff;
+            color: white;
         }
 
-        .shadow-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .shadow-card.zc-shadow-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .shadow-card.zc-shadow-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
         <nav>
@@ -53,17 +226,129 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Shadows Example</h1>
-        <p>Below are examples of different shadow levels and interactive hover effects:</p>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <div class="shadow-card shadow-sm">Small Shadow</div>
-        <div class="shadow-card shadow-md">Medium Shadow</div>
-        <div class="shadow-card shadow-lg">Large Shadow</div>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
 
-        <h2>Interactive Hover Shadow</h2>
-        <div class="shadow-card shadow-md shadow-hover">Hover Shadow</div>
-    </main>
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html" class="active">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Shadows Utilities</h1>
+            <p class="mb-5 description">Explore different shadow utilities provided by ZephCode, along with hover
+                effects and responsive shadows.</p>
+
+            <section>
+                <h2>Default Shadows</h2>
+                <div class="shadow-card zc-shadow-sm">Small Shadow</div>
+                <div class="shadow-card zc-shadow">Default Shadow</div>
+                <div class="shadow-card zc-shadow-lg">Large Shadow</div>
+            </section>
+
+            <section>
+                <h2>Hover Shadows</h2>
+                <div class="shadow-card zc-shadow shadow-hover">Hover to see effect</div>
+            </section>
+
+            <section>
+                <h2>Colored Shadows</h2>
+                <div class="shadow-card zc-shadow-primary">Primary Shadow</div>
+                <div class="shadow-card zc-shadow-success">Success Shadow</div>
+                <div class="shadow-card zc-shadow-danger">Danger Shadow</div>
+            </section>
+
+            <section>
+                <h2>CSS Snippet</h2>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <div class="code-snippet" id="css-snippet">
+                    <pre>
+            <code>
+            <span class="selector">.zc-shadow-sm</span> {
+                <span class="property">box-shadow</span>: <span class="value">0 1px 2px rgba(0, 0, 0, 0.05)</span>;
+                <span class="property">background-color</span>: <span class="value">#f8f9fa</span>;
+                <span class="property">border-radius</span>: <span class="value">8px</span>;
+            }
+            
+            <span class="selector">.zc-shadow</span> {
+                <span class="property">box-shadow</span>: <span class="value">0 2px 4px rgba(0, 0, 0, 0.1)</span>;
+                <span class="property">transition</span>: <span class="value">box-shadow 0.3s ease</span>;
+            }
+            
+            <span class="selector">.zc-shadow-lg</span> {
+                <span class="property">box-shadow</span>: <span class="value">0 4px 8px rgba(0, 0, 0, 0.15)</span>;
+                <span class="property">background-color</span>: <span class="value">#f1f3f5</span>;
+                <span class="property">padding</span>: <span class="value">1rem</span>;
+            }
+            
+            <span class="selector">.zc-shadow-primary</span> {
+                <span class="property">box-shadow</span>: <span class="value">0 2px 4px rgba(vars.$primary-color, 0.25)</span>;
+                <span class="property">color</span>: <span class="value">white</span>;
+            }
+            </code>
+                    </pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('copy-button').addEventListener('click', () => {
+            const snippet = document.getElementById('css-snippet').innerText;
+            navigator.clipboard.writeText(snippet).then(() => {
+                alert('CSS Snippet copied to clipboard!');
+            }).catch((err) => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
 </body>
 
 </html>
