@@ -1,27 +1,180 @@
+@use "../abstracts/variables" as vars;
+
 .zc-tabs {
     display: flex;
-    border-bottom: 1px solid #dee2e6;
-    margin-bottom: 1rem;
+    border-bottom: vars.$border-width solid vars.$border-color;
+    margin-bottom: vars.$spacing-md;
+
+    // Responsiveness
+    @media (max-width: vars.$breakpoint-sm) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &.zc-tabs-centered {
+        justify-content: center;
+    }
+
+    &.zc-tabs-end {
+        justify-content: flex-end;
+    }
 }
 
 .zc-tab {
-    padding: 0.5rem 1rem;
-    margin-right: 0.25rem;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    margin-right: vars.$spacing-xs;
     cursor: pointer;
     text-decoration: none;
-    color: #007bff;
-    border: 1px solid transparent;
+    color: vars.$primary-color;
+    border: vars.$border-width solid transparent;
     border-bottom: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all vars.$transition-fast;
+
+    &:hover {
+        background-color: vars.$gray-light;
+        color: vars.$primary-dark;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+        background-color: vars.$white;
+        color: vars.$text-color;
+        border-color: vars.$border-color vars.$border-color vars.$white;
+
+        animation: tabActive vars.$transition-fast ease-in-out;
+    }
+
+    &:focus {
+        outline: 2px solid vars.$primary-color;
+        outline-offset: 2px;
+    }
 }
 
-.zc-tab:hover {
-    background-color: #e9ecef;
-    color: #0056b3;
+// Variations
+.zc-tab.zc-tab-dark {
+    background-color: vars.$gray-dark;
+    color: vars.$text-color-light;
+
+    &:hover {
+        background-color: vars.$gray;
+        color: vars.$white;
+    }
+
+    &.active {
+        background-color: vars.$black;
+        color: vars.$text-color-light;
+        border-color: vars.$gray-dark vars.$gray-dark vars.$black;
+    }
 }
 
-.zc-tab.active {
-    background-color: #fff;
-    color: #212529;
-    border-color: #dee2e6 #dee2e6 #fff;
+.zc-tab.zc-tab-success {
+    background-color: vars.$success-color-light;
+    color: vars.$success-color;
+
+    &:hover {
+        background-color: vars.$success-color;
+        color: vars.$white;
+    }
+
+    &.active {
+        background-color: vars.$success-color-dark;
+        color: vars.$white;
+        border-color: vars.$success-color-dark vars.$success-color-dark vars.$white;
+    }
+}
+
+.zc-tab.zc-tab-danger {
+    background-color: vars.$danger-color-light;
+    color: vars.$danger-color;
+
+    &:hover {
+        background-color: vars.$danger-color;
+        color: vars.$white;
+    }
+
+    &.active {
+        background-color: vars.$danger-color-dark;
+        color: vars.$white;
+        border-color: vars.$danger-color-dark vars.$danger-color-dark vars.$white;
+    }
+}
+
+// Vertical Tabs
+.zc-tabs-vertical {
+    flex-direction: column;
+    border-right: vars.$border-width solid vars.$border-color;
+    border-bottom: none;
+
+    .zc-tab {
+        margin-right: 0;
+        margin-bottom: vars.$spacing-xs;
+        border-bottom: vars.$border-width solid transparent;
+        border-right: none;
+
+        &.active {
+            border-color: vars.$border-color vars.$white vars.$border-color vars.$border-color;
+        }
+    }
+}
+
+// Animation
+@keyframes tabActive {
+    from {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Dynamic Tabs
+.zc-tabs-dynamic {
+    position: relative;
+
+    .zc-tab {
+        flex: 1;
+        text-align: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: vars.$primary-color;
+        transition: transform vars.$transition-fast;
+    }
+
+    .zc-tab.active ~ &::before {
+        transform: translateX(calc(100% * var(--tab-index)));
+    }
+}
+
+// Support Icons
+.zc-tab .zc-icon {
+    margin-right: vars.$spacing-xs;
+    font-size: 1.2rem;
+}
+
+// Accessibility
+.zc-tab:focus {
+    outline: 2px solid vars.$primary-color;
+    outline-offset: 2px;
+}
+
+// Responsiveness
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-tab {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: vars.$spacing-xs;
+    }
+
+    .zc-tabs-vertical .zc-tab {
+        flex-basis: auto;
+    }
 }

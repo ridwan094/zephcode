@@ -124,6 +124,22 @@ $transition-fast: 0.2s ease-in-out;
 $transition-normal: 0.3s ease;
 $transition-slow: 0.5s ease;
 
+// Success Colors
+$success-color-lightest: color.scale($success-color, $lightness: 40%);
+$success-color-lighter: color.scale($success-color, $lightness: 20%);
+$success-color-light: color.scale($success-color, $lightness: 10%);
+$success-color-dark: color.scale($success-color, $lightness: -20%);
+$success-color-darker: color.scale($success-color, $lightness: -40%);
+$success-color-darkest: color.scale($success-color, $lightness: -60%);
+
+// Danger Colors
+$danger-color-lightest: color.scale($danger-color, $lightness: 40%);
+$danger-color-lighter: color.scale($danger-color, $lightness: 20%);
+$danger-color-light: color.scale($danger-color, $lightness: 10%);
+$danger-color-dark: color.scale($danger-color, $lightness: -20%);
+$danger-color-darker: color.scale($danger-color, $lightness: -40%);
+$danger-color-darkest: color.scale($danger-color, $lightness: -60%);
+
 // Z-index Levels
 $z-index-default: 1;
 $z-index-dropdown: 1000;
