@@ -6,46 +6,313 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spacing Utilities - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .zc-navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zc-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
         .spacing-box {
             width: 100px;
             height: 100px;
             background-color: #007bff;
             color: white;
-            text-align: center;
-            line-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 4px;
-            margin-bottom: 1rem;
+            margin: 1rem auto;
+        }
+
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
         <nav>
             <a href="../../index.html">Home</a>
         </nav>
     </header>
-    <main>
-        <h1>Spacing Utilities</h1>
 
-        <h2>Margin</h2>
-        <div class="spacing-box m-0">m-0</div>
-        <div class="spacing-box mt-1">mt-1</div>
-        <div class="spacing-box mb-2">mb-2</div>
-        <div class="spacing-box ml-3">ml-3</div>
-        <div class="spacing-box mr-4">mr-4</div>
-        <div class="spacing-box m-auto">m-auto</div>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <h2>Padding</h2>
-        <div class="spacing-box p-0">p-0</div>
-        <div class="spacing-box pt-1">pt-1</div>
-        <div class="spacing-box pb-2">pb-2</div>
-        <div class="spacing-box pl-3">pl-3</div>
-        <div class="spacing-box pr-4">pr-4</div>
-        <div class="spacing-box p-auto">p-auto</div>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
+
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html" class="active">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Spacing Utilities</h1>
+            <p>Explore different margin and padding utilities provided by ZephCode.</p>
+
+            <section>
+                <h2>Margin Examples</h2>
+                <hr>
+                <div class="spacing-box zc-m-0">zc-m-0</div>
+                <hr>
+                <div class="spacing-box zc-mt-1">zc-mt-1</div>
+                <hr>
+                <div class="spacing-box zc-mb-2">zc-mb-2</div>
+                <hr>
+                <div class="spacing-box zc-m-auto">zc-m-auto</div>
+            </section>
+
+            <section>
+                <h2>Padding Examples</h2>
+                <hr>
+                <div class="spacing-box zc-p-0">zc-p-0</div>
+                <hr>
+                <div class="spacing-box zc-pt-1">zc-pt-1</div>
+                <hr>
+                <div class="spacing-box zc-pb-2">zc-pb-2</div>
+                <hr>
+                <div class="spacing-box zc-p-auto">zc-p-auto</div>
+                <hr>
+            </section>
+
+            <section class="code-snippet">
+                <h2>CSS Snippet for Spacing</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <pre id="css-snippet">
+                <code>
+<span class="selector">.zc-m-0</span> {
+    <span class="property">margin</span>: <span class="value">0 !important</span>;
+}
+
+<span class="selector">.zc-mt-1</span> {
+    <span class="property">margin-top</span>: <span class="value">0.25rem !important</span>;
+}
+
+<span class="selector">.zc-mb-2</span> {
+    <span class="property">margin-bottom</span>: <span class="value">0.5rem !important</span>;
+}
+
+<span class="selector">.zc-p-auto</span> {
+    <span class="property">padding</span>: <span class="value">auto !important</span>;
+}
+</code></pre>
+    </div>
+    </section>
     </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('copy-icon').addEventListener('click', () => {
+            const snippet = document.getElementById('css-snippet').innerText;
+            navigator.clipboard.writeText(snippet).then(() => {
+                const status = document.getElementById('copy-status');
+                status.textContent = "CSS Snippet copied!";
+                status.style.color = "green";
+                setTimeout(() => {
+                    status.textContent = "";
+                }, 2000);
+            }).catch((err) => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
 </body>
 
 </html>

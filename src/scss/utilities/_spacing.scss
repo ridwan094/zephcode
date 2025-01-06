@@ -1,47 +1,116 @@
-.m-0 {
+@use "../abstracts/variables" as vars;
+
+/* Margin Utilities */
+.zc-m-0 {
     margin: 0 !important;
 }
 
-.mt-1 {
-    margin-top: 0.25rem !important;
+.zc-m-1 {
+    margin: 0.25rem !important;
 }
 
-.mb-2 {
-    margin-bottom: 0.5rem !important;
+.zc-m-2 {
+    margin: 0.5rem !important;
 }
 
-.ml-1 {
-    margin-left: 0.25rem !important;
+.zc-m-3 {
+    margin: 1rem !important;
 }
 
-.mr-1 {
-    margin-right: 0.25rem !important;
-}
-
-.p-0 {
-    padding: 0 !important;
-}
-
-.pt-1 {
-    padding-top: 0.25rem !important;
-}
-
-.pb-2 {
-    padding-bottom: 0.5rem !important;
-}
-
-.pl-1 {
-    padding-left: 0.25rem !important;
-}
-
-.pr-1 {
-    padding-right: 0.25rem !important;
-}
-
-.m-auto {
+.zc-m-auto {
     margin: auto !important;
 }
 
-.p-auto {
+.zc-mt-1 {
+    margin-top: 0.25rem !important;
+}
+
+.zc-mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.zc-ml-1 {
+    margin-left: 0.25rem !important;
+}
+
+.zc-mr-1 {
+    margin-right: 0.25rem !important;
+}
+
+/* Padding Utilities */
+.zc-p-0 {
+    padding: 0 !important;
+}
+
+.zc-p-1 {
+    padding: 0.25rem !important;
+}
+
+.zc-p-2 {
+    padding: 0.5rem !important;
+}
+
+.zc-p-3 {
+    padding: 1rem !important;
+}
+
+.zc-p-auto {
     padding: auto !important;
+}
+
+.zc-pt-1 {
+    padding-top: 0.25rem !important;
+}
+
+.zc-pb-2 {
+    padding-bottom: 0.5rem !important;
+}
+
+.zc-pl-1 {
+    padding-left: 0.25rem !important;
+}
+
+.zc-pr-1 {
+    padding-right: 0.25rem !important;
+}
+
+/* Responsive Spacing Utilities */
+@media (min-width: vars.$breakpoint-sm) {
+    .zc-m-sm-0 {
+        margin: 0 !important;
+    }
+
+    .zc-p-sm-1 {
+        padding: 0.25rem !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-md) {
+    .zc-m-md-1 {
+        margin: 0.25rem !important;
+    }
+
+    .zc-p-md-2 {
+        padding: 0.5rem !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-lg) {
+    .zc-m-lg-2 {
+        margin: 0.5rem !important;
+    }
+
+    .zc-p-lg-3 {
+        padding: 1rem !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-xl) {
+    .zc-m-xl-3 {
+        margin: 1rem !important;
+    }
+
+    .zc-p-xl-3 {
+        padding: 1rem !important;
+    }
 }

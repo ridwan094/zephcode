@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadows Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         html {
             font-size: 100%;
@@ -279,31 +280,38 @@
 
             <section>
                 <h2>Default Shadows</h2>
+                <hr>
                 <div class="shadow-card zc-shadow-sm">Small Shadow</div>
+                <hr>
                 <div class="shadow-card zc-shadow">Default Shadow</div>
+                <hr>
                 <div class="shadow-card zc-shadow-lg">Large Shadow</div>
             </section>
 
             <section>
                 <h2>Hover Shadows</h2>
+                <hr>
                 <div class="shadow-card zc-shadow shadow-hover">Hover to see effect</div>
             </section>
 
             <section>
                 <h2>Colored Shadows</h2>
+                <hr>
                 <div class="shadow-card zc-shadow-primary">Primary Shadow</div>
+                <hr>
                 <div class="shadow-card zc-shadow-success">Success Shadow</div>
+                <hr>
                 <div class="shadow-card zc-shadow-danger">Danger Shadow</div>
+                
             </section>
 
-            <section>
-                <h2>CSS Snippet</h2>
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+            <section class="code-snippet">
+                <h2>CSS Snippet for Shadow</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
                     <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
                     <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
                 </div>
-                <div class="code-snippet" id="css-snippet">
-                    <pre>
+                <pre id="css-snippet">
             <code>
             <span class="selector">.zc-shadow-sm</span> {
                 <span class="property">box-shadow</span>: <span class="value">0 1px 2px rgba(0, 0, 0, 0.05)</span>;
