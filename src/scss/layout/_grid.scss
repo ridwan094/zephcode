@@ -1,3 +1,4 @@
+/* Kode Asli */
 .zc-row {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +70,77 @@
     background-color: rgba(0, 255, 0, 0.1);
 }
 
-.zc-col-debug {
-    border: 1px dashed rgba(255, 0, 0, 0.6);
-    background-color: rgba(255, 0, 0, 0.1);
+/* Fitur Baru */
+.zc-grid {
+    display: grid;
+    gap: 1rem;
+
+    &-gap-xs {
+        gap: 0.25rem;
+    }
+    &-gap-sm {
+        gap: 0.5rem;
+    }
+    &-gap-md {
+        gap: 1rem;
+    }
+    &-gap-lg {
+        gap: 1.5rem;
+    }
+    &-gap-xl {
+        gap: 2rem;
+    }
+}
+
+.zc-grid-align-center {
+    align-items: center;
+}
+
+.zc-grid-justify-center {
+    justify-content: center;
+}
+
+.zc-grid-areas {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+
+    & > .header {
+        grid-area: header;
+    }
+    & > .sidebar {
+        grid-area: sidebar;
+    }
+    & > .content {
+        grid-area: content;
+    }
+    & > .footer {
+        grid-area: footer;
+    }
+}
+
+@media (max-width: 576px) {
+    .zc-grid-areas {
+        grid-template-areas: 
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+    }
+}
+
+/* Nested Grid */
+.zc-grid-nested {
+    display: grid;
+    gap: 1rem;
+
+    &-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
