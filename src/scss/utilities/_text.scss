@@ -1,49 +1,92 @@
 @use "../abstracts/variables" as variables;
+@use "sass:color";
 
-.text-left {
-    text-align: left;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-.text-lowercase {
-    text-transform: lowercase;
-}
-
-.text-capitalize {
-    text-transform: capitalize;
-}
-
-.text-primary {
+/* Text Colors */
+.zc-text-primary {
     color: variables.$primary-color !important;
 }
 
-.text-secondary {
+.zc-text-secondary {
     color: variables.$secondary-color !important;
 }
 
-.text-success {
-    color: variables.$success-color !important;
+/* Hover States */
+.zc-text-primary:hover {
+    color: color.adjust(variables.$primary-color, $lightness: -10%) !important;
 }
 
-.text-danger {
+.zc-text-secondary:hover {
+    color: color.adjust(variables.$secondary-color, $lightness: -10%) !important;
+}
+
+/* Alignment Utilities */
+.zc-text-left {
+    text-align: left !important;
+}
+
+.zc-text-center {
+    text-align: center !important;
+}
+
+.zc-text-right {
+    text-align: right !important;
+}
+
+.zc-text-danger {
     color: variables.$danger-color !important;
 }
 
-.text-warning {
-    color: variables.$warning-color !important;
+.zc-text-success {
+    color: variables.$success-color !important;
 }
 
-.text-info {
-    color: variables.$info-color !important;
+.zc-text-warning {
+    color: variables.$warning-color !important;
+}
+/* Text Transform */
+.zc-text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.zc-text-lowercase {
+    text-transform: lowercase !important;
+}
+
+.zc-text-capitalize {
+    text-transform: capitalize !important;
+}
+
+/* Font Weight */
+.zc-font-bold {
+    font-weight: bold !important;
+}
+
+.zc-font-normal {
+    font-weight: normal !important;
+}
+
+.zc-font-light {
+    font-weight: 300 !important;
+}
+
+/* Font Style */
+.zc-font-italic {
+    font-style: italic !important;
+}
+
+.zc-font-underline {
+    text-decoration: underline !important;
+}
+
+/* Line Height */
+.zc-line-height-1 {
+    line-height: 1 !important;
+}
+
+.zc-line-height-1-5 {
+    line-height: 1.5 !important;
+}
+
+.zc-line-height-2 {
+    line-height: 2 !important;
 }

@@ -352,15 +352,26 @@
         document.addEventListener("DOMContentLoaded", () => {
             const copyIcon = document.getElementById('copy-icon');
             const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
 
             if (copyIcon && codeSnippet) {
                 copyIcon.addEventListener('click', () => {
                     const codeContent = codeSnippet.innerText.trim();
                     navigator.clipboard.writeText(codeContent).then(() => {
-                        copyIcon.innerText = "Copied!";
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
                         setTimeout(() => {
-                            copyIcon.innerText = "Copy";
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
                         }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
                     });
                 });
             }

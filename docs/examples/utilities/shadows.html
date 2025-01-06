@@ -348,13 +348,32 @@
 
     <!-- JavaScript -->
     <script>
-        document.getElementById('copy-button').addEventListener('click', () => {
-            const snippet = document.getElementById('css-snippet').innerText;
-            navigator.clipboard.writeText(snippet).then(() => {
-                alert('CSS Snippet copied to clipboard!');
-            }).catch((err) => {
-                console.error('Failed to copy: ', err);
-            });
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
+                        setTimeout(() => {
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+                });
+            }
         });
     </script>
 </body>

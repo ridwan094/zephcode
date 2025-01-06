@@ -6,7 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Utilities - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .zc-navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zc-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
         .text-example {
             margin-bottom: 1rem;
             padding: 1rem;
@@ -20,10 +119,72 @@
             padding: 0.25rem 0.5rem;
             border-radius: 3px;
         }
+
+        /* CSS Snippet */
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
         <nav>
@@ -31,72 +192,165 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Text Utilities</h1>
-        <p>This page demonstrates the text utilities provided by ZephCode:</p>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <h2>Text Alignment</h2>
-        <div class="text-example text-left">
-            This text is aligned <span class="highlight">left</span>.
-        </div>
-        <div class="text-example text-center">
-            This text is aligned <span class="highlight">center</span>.
-        </div>
-        <div class="text-example text-right">
-            This text is aligned <span class="highlight">right</span>.
-        </div>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
 
-        <h2>Text Transformation</h2>
-        <div class="text-example text-uppercase">
-            This text is transformed to <span class="highlight">uppercase</span>.
-        </div>
-        <div class="text-example text-lowercase">
-            THIS TEXT IS TRANSFORMED TO <span class="highlight">lowercase</span>.
-        </div>
-        <div class="text-example text-capitalize">
-            this text is transformed to <span class="highlight">capitalize</span>.
-        </div>
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html" class="active">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
 
-        <h2>Font Weight</h2>
-        <div class="text-example font-weight-bold">
-            This text is <span class="highlight">bold</span>.
-        </div>
-        <div class="text-example font-weight-normal">
-            This text is <span class="highlight">normal</span>.
-        </div>
-        <div class="text-example font-weight-light">
-            This text is <span class="highlight">light</span>.
-        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Text Utilities</h1>
+            <p>This page demonstrates the text utilities provided by ZephCode:</p>
 
-        <h2>Font Style</h2>
-        <div class="text-example font-italic">
-            This text is <span class="highlight">italic</span>.
-        </div>
-        <div class="text-example font-normal">
-            This text is <span class="highlight">normal</span>.
-        </div>
+            <h2>Text Alignment</h2>
+            <div class="text-example zc-text-left">
+                This text is aligned <span class="highlight">left</span>.
+            </div>
+            <div class="text-example zc-text-center">
+                This text is aligned <span class="highlight">center</span>.
+            </div>
+            <div class="text-example zc-text-right">
+                This text is aligned <span class="highlight">right</span>.
+            </div>
 
-        <h2>Text Colors</h2>
-        <div class="text-example text-primary">
-            This text is <span class="highlight">primary</span> colored.
-        </div>
-        <div class="text-example text-secondary">
-            This text is <span class="highlight">secondary</span> colored.
-        </div>
-        <div class="text-example text-danger">
-            This text is <span class="highlight">danger</span> colored.
-        </div>
-        <div class="text-example text-success">
-            This text is <span class="highlight">success</span> colored.
-        </div>
-        <div class="text-example text-info">
-            This text is <span class="highlight">info</span> colored.
-        </div>
-        <div class="text-example text-warning">
-            This text is <span class="highlight">warning</span> colored.
-        </div>
+            <h2>Text Transformation</h2>
+            <div class="text-example zc-text-uppercase">
+                This text is transformed to <span class="highlight">uppercase</span>.
+            </div>
+            <div class="text-example zc-text-lowercase">
+                THIS TEXT IS TRANSFORMED TO <span class="highlight">lowercase</span>.
+            </div>
+            <div class="text-example zc-text-capitalize">
+                this text is transformed to <span class="highlight">capitalize</span>.
+            </div>
 
-    </main>
+            <h2>Text Colors</h2>
+            <div class="text-example zc-text-primary">
+                This text is <span class="highlight">primary</span> colored.
+            </div>
+            <div class="text-example zc-text-secondary">
+                This text is <span class="highlight">secondary</span> colored.
+            </div>
+            <div class="text-example zc-text-success">
+                This text is <span class="highlight">success</span> colored.
+            </div>
+            <div class="text-example zc-text-danger">
+                This text is <span class="highlight">danger</span> colored.
+            </div>
+            <div class="text-example zc-text-warning">
+                This text is <span class="highlight">warning</span> colored.
+            </div>
+
+            <!-- CSS Snippet -->
+            <section class="code-snippet">
+                <h2>CSS Snippet for Text</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <pre id="css-snippet">
+                        <code>
+                            <span class="selector">.zc-text-primary</span> {
+                                <span class="property">color</span>: <span class="value">#007bff</span>;
+                            }
+            
+                            <span class="selector">.zc-text-uppercase</span> {
+                                <span class="property">text-transform</span>: <span class="value">uppercase</span>;
+                            }
+            
+                            <span class="selector">.zc-text-center</span> {
+                                <span class="property">text-align</span>: <span class="value">center</span>;
+                            }
+            
+                            <span class="selector">.zc-text-danger:hover</span> {
+                                <span class="property">color</span>: <span class="value">#dc3545</span>;
+                            }
+            
+                            <span class="selector">.zc-text-lowercase</span> {
+                                <span class="property">text-transform</span>: <span class="value">lowercase</span>;
+                            }
+                        </code>
+                    </pre>
+                </div>
+            </section>            
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
+                        setTimeout(() => {
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
