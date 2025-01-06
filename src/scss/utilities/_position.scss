@@ -1,20 +1,127 @@
-.position-relative {
+@use "../abstracts/variables" as vars;
+
+/* Position Utilities */
+.zc-position-static {
+    position: static !important;
+}
+
+.zc-position-relative {
     position: relative !important;
 }
 
-.position-absolute {
+.zc-position-absolute {
     position: absolute !important;
     top: 0;
     right: 0;
 }
 
-.position-fixed {
+.zc-position-fixed {
     position: fixed !important;
     bottom: 0;
     right: 0;
 }
 
-.position-sticky {
+.zc-position-sticky {
     position: sticky !important;
     top: 0;
+}
+
+/* Top, Right, Bottom, Left Utilities */
+.zc-top-0 {
+    top: 0 !important;
+}
+.zc-right-0 {
+    right: 0 !important;
+}
+.zc-bottom-0 {
+    bottom: 0 !important;
+}
+.zc-left-0 {
+    left: 0 !important;
+}
+
+.zc-top-auto {
+    top: auto !important;
+}
+.zc-right-auto {
+    right: auto !important;
+}
+.zc-bottom-auto {
+    bottom: auto !important;
+}
+.zc-left-auto {
+    left: auto !important;
+}
+
+/* Responsive Position Utilities */
+@media (min-width: vars.$breakpoint-sm) {
+    .zc-position-sm-static {
+        position: static !important;
+    }
+    .zc-position-sm-relative {
+        position: relative !important;
+    }
+    .zc-position-sm-absolute {
+        position: absolute !important;
+    }
+    .zc-position-sm-fixed {
+        position: fixed !important;
+    }
+    .zc-position-sm-sticky {
+        position: sticky !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-md) {
+    .zc-position-md-static {
+        position: static !important;
+    }
+    .zc-position-md-relative {
+        position: relative !important;
+    }
+    .zc-position-md-absolute {
+        position: absolute !important;
+    }
+    .zc-position-md-fixed {
+        position: fixed !important;
+    }
+    .zc-position-md-sticky {
+        position: sticky !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-lg) {
+    .zc-position-lg-static {
+        position: static !important;
+    }
+    .zc-position-lg-relative {
+        position: relative !important;
+    }
+    .zc-position-lg-absolute {
+        position: absolute !important;
+    }
+    .zc-position-lg-fixed {
+        position: fixed !important;
+    }
+    .zc-position-lg-sticky {
+        position: sticky !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-xl) {
+    .zc-position-xl-static {
+        position: static !important;
+    }
+    .zc-position-xl-relative {
+        position: relative !important;
+    }
+    .zc-position-xl-absolute {
+        position: absolute !important;
+    }
+    .zc-position-xl-fixed {
+        position: fixed !important;
+    }
+    .zc-position-xl-sticky {
+        position: sticky !important;
+    }
 }

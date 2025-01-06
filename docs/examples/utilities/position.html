@@ -7,7 +7,104 @@
     <title>Position Utilities - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
     <style>
-        /* Styling tambahan untuk konteks visual */
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .zc-navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zc-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
         .position-container {
             margin-bottom: 2rem;
             padding: 1.5rem;
@@ -46,6 +143,66 @@
             font-size: 1rem;
             color: #555;
         }
+
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -59,51 +216,151 @@
     </header>
 
     <!-- Main Content -->
-    <main class="p-4">
-        <h1 class="text-primary mb-4">Position Utilities</h1>
-        <p class="mb-5 description">Explore the positioning utilities provided by ZephCode with visual examples below.</p>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <!-- Sticky Position -->
-        <section class="mb-5">
-            <h2 class="text-secondary">Sticky Position</h2>
-            <div class="sticky-box">
-                This is a sticky box. Scroll to see it stick to the top of the viewport.
-            </div>
-        </section>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
 
-        <!-- Relative Position -->
-        <section class="mb-5">
-            <h2 class="text-secondary">Relative Position</h2>
-            <div class="position-container">
-                <div class="position-box bg-primary position-relative" style="top: 20px; left: 30px;">
-                    Relative
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html" class="active">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="text-primary mb-4">Position Utilities</h1>
+            <p class="mb-5 description">Explore the positioning utilities provided by ZephCode with visual examples below.</p>
+
+            <!-- Sticky Position -->
+            <section class="mb-5">
+                <h2 class="text-secondary">Sticky Position</h2>
+                <div class="sticky-box">
+                    This is a sticky box. Scroll to see it stick to the top of the viewport.
                 </div>
-            </div>
-            <p class="description">This box is positioned <span class="text-primary">relative</span> to its container.</p>
-        </section>
+            </section>
 
-        <!-- Absolute Position -->
-        <section class="mb-5">
-            <h2 class="text-secondary">Absolute Position</h2>
-            <div class="position-container">
-                <div class="position-box bg-success position-absolute" style="top: 20px; right: 30px;">
-                    Absolute
+            <!-- Relative Position -->
+            <section class="mb-5">
+                <h2 class="text-secondary">Relative Position</h2>
+                <div class="position-container">
+                    <div class="position-box bg-primary zc-position-relative" style="top: 20px; left: 30px;">
+                        Relative
+                    </div>
                 </div>
-            </div>
-            <p class="description">This box is positioned <span class="text-success">absolutely</span> relative to the nearest positioned ancestor.</p>
-        </section>
+                <p class="description">This box is positioned <span class="text-primary">relative</span> to its container.</p>
+            </section>
 
-        <!-- Fixed Position -->
-        <section class="mb-5">
-            <h2 class="text-secondary">Fixed Position</h2>
-            <div class="position-container">
-                <p class="description">This box remains <span class="text-danger">fixed</span> to the bottom-right of the viewport.</p>
-            </div>
-            <div class="position-box bg-danger position-fixed bottom-0 right-0 shadow-lg">
-                Fixed
-            </div>
-        </section>
-    </main>
+            <!-- Absolute Position -->
+            <section class="mb-5">
+                <h2 class="text-secondary">Absolute Position</h2>
+                <div class="position-container">
+                    <div class="position-box bg-success zc-position-absolute" style="top: 20px; right: 30px;">
+                        Absolute
+                    </div>
+                </div>
+                <p class="description">This box is positioned <span class="text-success">absolutely</span> relative to the nearest positioned ancestor.</p>
+            </section>
+
+            <!-- Fixed Position -->
+            <section class="mb-5">
+                <h2 class="text-secondary">Fixed Position</h2>
+                <div class="position-container">
+                    <p class="description">This box remains <span class="text-danger">fixed</span> to the bottom-right of the viewport.</p>
+                </div>
+                <div class="position-box bg-danger zc-position-fixed" style="bottom: 0; right: 0;">
+                    Fixed
+                </div>
+            </section>
+
+            <!-- CSS Snippet -->
+            <section class="code-snippet">
+                <h2>CSS Snippet for Position Utilities</h2>
+                <pre id="css-snippet">
+<code>
+<span class="selector">.zc-position-relative</span> {
+    <span class="property">position</span>: <span class="value">relative</span> <span class="property">!important</span>;
+}
+
+<span class="selector">.zc-position-absolute</span> {
+    <span class="property">position</span>: <span class="value">absolute</span> <span class="property">!important</span>;
+    <span class="property">top</span>: <span class="value">0</span>;
+    <span class="property">right</span>: <span class="value">0</span>;
+}
+
+<span class="selector">.zc-position-fixed</span> {
+    <span class="property">position</span>: <span class="value">fixed</span> <span class="property">!important</span>;
+    <span class="property">bottom</span>: <span class="value">0</span>;
+    <span class="property">right</span>: <span class="value">0</span>;
+}
+
+<span class="selector">.zc-position-sticky</span> {
+    <span class="property">position</span>: <span class="value">sticky</span> <span class="property">!important</span>;
+    <span class="property">top</span>: <span class="value">0</span>;
+}
+</code>
+                </pre>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.innerText = "Copied!";
+                        setTimeout(() => {
+                            copyIcon.innerText = "Copy";
+                        }, 2000);
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
