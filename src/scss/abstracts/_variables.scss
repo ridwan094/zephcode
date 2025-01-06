@@ -102,6 +102,11 @@ $animation-duration-short: 0.2s;
 $animation-duration-normal: 0.5s;
 $animation-duration-long: 1s;
 $animation-easing: ease-in-out;
+$animation-duration-fast: 0.3s;
+$animation-duration-medium: 0.5s;
+$animation-duration-slow: 1s;
+$animation-timing-function: ease-in-out;
+
 
 // Breakpoints
 $breakpoint-xs: 480px;

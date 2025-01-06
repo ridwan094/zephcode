@@ -6,151 +6,381 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animations Example</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom Styling for Animations */
-        .fade-in-once {
-            animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0;
-            /* Hidden initially */
+        html {
+            font-size: 100%;
         }
 
-        .slide-up-once {
-            animation: slideUp 1s ease-out forwards;
-            opacity: 0;
-            /* Hidden initially */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
         }
 
-        .hover-zoom {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hover-zoom:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .hover-shake {
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .hover-shake:hover {
-            animation: shake 0.3s ease-in-out;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            50% {
-                transform: translateX(5px);
-            }
-
-            75% {
-                transform: translateX(-5px);
-            }
-        }
-
-        .zoom-in-once {
-            animation: zoomIn 1s ease-in-out forwards;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-
-        .bounce {
-            animation: bounce 1.5s infinite;
-        }
-
-        .rotate {
-            animation: rotate 1s linear infinite;
-            display: inline-block;
-            transform-origin: center center;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Container for interactive examples */
-        .animation-container {
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* CSS Snippet Section */
+        .code-snippet {
             margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <header class="zc-navbar">
-        <div class="zc-navbar-brand">ZephCode</div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-brand">ZephCode</div>
         <nav>
             <a href="../../index.html">Home</a>
         </nav>
     </header>
-    <main>
-        <h1>Animations Example</h1>
 
-        <!-- Section 1: Load Animations -->
-        <h2>Load Animations</h2>
-        <div class="zc-card fade-in-once" style="margin-bottom: 1rem;">
-            <h3 class="zc-card-title">Fade In Animation</h3>
-            <p class="zc-card-text">This card smoothly fades in when the page loads.</p>
-        </div>
-        <div class="zc-card slide-up-once" style="margin-bottom: 1rem;">
-            <h3 class="zc-card-title">Slide Up Animation</h3>
-            <p class="zc-card-text">This card slides up elegantly when the page loads.</p>
-        </div>
-        <div class="zc-card zoom-in-once" style="margin-bottom: 1rem;">
-            <h3 class="zc-card-title">Zoom In Animation</h3>
-            <p class="zc-card-text">This card zooms in smoothly when the page loads.</p>
-        </div>
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components/carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html">Wizard</a>
 
-        <!-- Section 2: Hover Animations -->
-        <h2>Hover Animations</h2>
-        <div class="animation-container">
-            <button class="zc-btn zc-btn-primary hover-zoom">Hover Zoom</button>
-            <button class="zc-btn zc-btn-secondary hover-shake">Hover Shake</button>
-        </div>
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
 
-        <!-- Section 3: Infinite Animations -->
-        <h2>Infinite Animations</h2>
-        <div class="animation-container">
-            <div class="zc-card bounce"
-                style="width: 150px; text-align: center; background-color: #f8f9fa; padding: 1rem;">
-                <h3 class="zc-card-title">Bounce</h3>
-            </div>
-            <div class="zc-card rotate"
-                style="width: 150px; text-align: center; background-color: #e0f7fa; padding: 1rem; display: flex; align-items: center; justify-content: center;">
-                <div style="font-size: 1.2rem; font-weight: bold; transform-origin: center;">🔄</div>
-            </div>
-        </div>
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html" class="active">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
 
-        <!-- Section 4: Interactive Animations -->
-        <h2>Interactive Animations</h2>
-        <div class="animation-container">
-            <div class="zc-card hover-zoom" style="background-color: #e9ecef; padding: 1rem;">
-                <h3 class="zc-card-title">Hover Zoom Card</h3>
-                <p class="zc-card-text">This card scales up slightly on hover for emphasis.</p>
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Animations Example</h1>
+            <p>This page demonstrates various animation utilities provided by ZephCode.</p>
+
+            <!-- Animations Demo -->
+            <div>
+                <h2>Animation Demos</h2>
+                <div class="zc-btn fade-in">Fade In</div>
+                <div class="zc-btn slide-up">Slide Up</div>
+                <div class="zc-btn zoom-in">Zoom In</div>
             </div>
-            <div class="zc-card hover-shake" style="background-color: #f8d7da; padding: 1rem;">
-                <h3 class="zc-card-title">Hover Shake Card</h3>
-                <p class="zc-card-text">This card shakes gently when hovered over.</p>
-            </div>
-        </div>
-    </main>
+
+            <!-- CSS Snippet -->
+            <section class="code-snippet">
+                <h2>CSS Snippet for Animations</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <pre id="css-snippet">
+            <code>
+            /* Fade In Animation */
+            <span class="selector">.fade-in</span> {
+                <span class="property">animation</span>: <span class="value">fadeIn</span> 0.5s <span class="value">ease-in-out</span>;
+            }
+            
+            @<span class="at-rule">keyframes fadeIn</span> {
+                <span class="selector">from</span> {
+                    <span class="property">opacity</span>: <span class="value">0</span>;
+                }
+                <span class="selector">to</span> {
+                    <span class="property">opacity</span>: <span class="value">1</span>;
+                }
+            }
+            
+            /* Slide Up Animation */
+            <span class="selector">.slide-up</span> {
+                <span class="property">animation</span>: <span class="value">slideUp</span> 0.5s <span class="value">ease-in-out</span>;
+            }
+            
+            @<span class="at-rule">keyframes slideUp</span> {
+                <span class="selector">from</span> {
+                    <span class="property">transform</span>: <span class="value">translateY(100%)</span>;
+                    <span class="property">opacity</span>: <span class="value">0</span>;
+                }
+                <span class="selector">to</span> {
+                    <span class="property">transform</span>: <span class="value">translateY(0)</span>;
+                    <span class="property">opacity</span>: <span class="value">1</span>;
+                }
+            }
+            
+            /* Zoom In Animation */
+            <span class="selector">.zoom-in</span> {
+                <span class="property">animation</span>: <span class="value">zoomIn</span> 0.5s <span class="value">ease-in-out</span>;
+            }
+            
+            @<span class="at-rule">keyframes zoomIn</span> {
+                <span class="selector">from</span> {
+                    <span class="property">transform</span>: <span class="value">scale(0.8)</span>;
+                    <span class="property">opacity</span>: <span class="value">0</span>;
+                }
+                <span class="selector">to</span> {
+                    <span class="property">transform</span>: <span class="value">scale(1)</span>;
+                    <span class="property">opacity</span>: <span class="value">1</span>;
+                }
+            }
+            </code>
+                </pre>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
+                        setTimeout(() => {
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+                });
+            }
+        });
+
+        // Animasi berdasarkan viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        // Elemen yang akan diamati untuk animasi "fade-in", "slide-up", dan "zoom-in"
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .zoom-in');
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hover animasi untuk elemen dengan class hover-zoom dan hover-shake
+        const hoverElements = document.querySelectorAll('.hover-zoom, .hover-shake');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (el.classList.contains('hover-zoom')) {
+                    el.classList.add('zoom-in-once');
+                    setTimeout(() => el.classList.remove('zoom-in-once'), 1000); // Reset animasi
+                } else if (el.classList.contains('hover-shake')) {
+                    el.classList.add('shake');
+                    setTimeout(() => el.classList.remove('shake'), 500); // Reset animasi
+                }
+            });
+        });
+
+        // Infinite Animations untuk elemen dengan class bounce dan rotate
+        const infiniteElements = document.querySelectorAll('.bounce, .rotate');
+        infiniteElements.forEach(el => {
+            el.style.animationPlayState = 'running';
+        });
+
+        const buttons = document.querySelectorAll('.zc-btn');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const effect = button.getAttribute('data-animation'); // Ambil jenis animasi
+                const demoBox = document.querySelector('.demo-box'); // Elemen target animasi
+
+                if (effect && demoBox) {
+                    demoBox.className = 'demo-box'; // Reset kelas animasi
+                    void demoBox.offsetWidth; // Trik untuk memicu ulang animasi
+                    demoBox.classList.add(effect); // Tambahkan kelas animasi
+                }
+            });
+        });
+
+    </script>
 </body>
 
 </html>
