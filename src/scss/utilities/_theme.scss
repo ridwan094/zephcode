@@ -1,16 +1,72 @@
+/* Default Theme Variables */
 :root {
-    --bg-color: #fff;
-    --text-color: #000;
-    --primary-color: #007bff;
+    --zc-bg-color: #fff;
+    --zc-text-color: #000;
+    --zc-primary-color: #007bff;
+    --zc-secondary-color: #6c757d;
+    --zc-hover-color: rgba(0, 123, 255, 0.1);
+    --zc-button-bg: var(--zc-primary-color);
+    --zc-button-text: #fff;
+    --zc-border-color: #ddd;
+    --zc-link-color: var(--zc-primary-color);
+    --zc-link-hover-color: darken(var(--zc-primary-color), 10%);
 }
 
+/* Dark Theme Variables */
 [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #fff;
-    --primary-color: #1a73e8;
+    --zc-bg-color: #121212;
+    --zc-text-color: #f1f1f1;
+    --zc-primary-color: #1a73e8;
+    --zc-secondary-color: #37474f;
+    --zc-hover-color: rgba(26, 115, 232, 0.1);
+    --zc-button-bg: var(--zc-primary-color);
+    --zc-button-text: #000;
+    --zc-border-color: #333;
+    --zc-link-color: var(--zc-primary-color);
+    --zc-link-hover-color: lighten(var(--zc-primary-color), 10%);
 }
 
+/* Theme Transition */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--zc-bg-color);
+    color: var(--zc-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility Classes for Theme */
+.zc-theme-light {
+    --zc-bg-color: #fff;
+    --zc-text-color: #000;
+    --zc-primary-color: #007bff;
+}
+
+.zc-theme-dark {
+    --zc-bg-color: #121212;
+    --zc-text-color: #f1f1f1;
+    --zc-primary-color: #1a73e8;
+}
+
+/* Sample Element Usage */
+.zc-button {
+    background-color: var(--zc-button-bg);
+    color: var(--zc-button-text);
+    border: 1px solid var(--zc-border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.zc-button:hover {
+    background-color: var(--zc-hover-color);
+}
+
+.zc-link {
+    color: var(--zc-link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.zc-link:hover {
+    color: var(--zc-link-hover-color);
 }

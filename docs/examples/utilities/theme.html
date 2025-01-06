@@ -1,31 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theme Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
-    <script>
-        function toggleTheme() {
-            const theme = document.documentElement.getAttribute('data-theme');
-            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    <style>
+        html {
+            font-size: 100%;
         }
-    </script>
+
+        body {
+            background-color: var(--zc-bg-color);
+            color: var(--zc-text-color);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .zc-button {
+            background-color: var(--zc-button-bg);
+            color: var(--zc-button-text);
+            border: 1px solid var(--zc-border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .zc-button:hover {
+            background-color: var(--zc-hover-color);
+        }
+
+        /* Navbar */
+        .zc-navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .zc-navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .zc-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .theme-box {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--zc-border-color);
+            border-radius: 10px;
+            background-color: var(--zc-bg-color);
+            color: var(--zc-text-color);
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* CSS Snippet */
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: var(--zc-primary-color);
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .zc-icon-copy:hover {
+            color: var(--zc-link-hover-color);
+        }
+
+        .footer {
+            background-color: var(--zc-bg-color);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--zc-text-color);
+            border-top: 1px solid var(--zc-border-color);
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: var(--zc-primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="zc-navbar">
         <div class="zc-navbar-brand">ZephCode</div>
         <nav>
             <a href="../../index.html">Home</a>
         </nav>
     </header>
-    <main>
-        <h1>Theme Example</h1>
-        <button class="zc-btn zc-btn-primary" onclick="toggleTheme()">Toggle Dark Mode</button>
-        <p>Click the button to switch between Light and Dark modes.</p>
-    </main>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Borders</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadows</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html" class="active">Theme</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Theme Utilities</h1>
+            <button class="zc-button" onclick="toggleTheme()">Toggle Dark Mode</button>
+            <p>This box changes colors based on the current theme.</p>
+
+            <!-- CSS Snippet -->
+            <section>
+                <h2>CSS Snippet</h2>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+                    <i id="copy-icon" class="zc-icon-copy" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <div class="code-snippet" id="css-snippet">
+                    <pre>
+                        <code>
+                            <span class="selector">:root</span> {
+                                <span class="property">--zc-bg-color</span>: <span class="value">#fff</span>;
+                                <span class="property">--zc-text-color</span>: <span class="value">#000</span>;
+                                <span class="property">--zc-primary-color</span>: <span class="value">#007bff</span>;
+                            }
+                            
+                            <span class="selector">[data-theme="dark"]</span> {
+                                <span class="property">--zc-bg-color</span>: <span class="value">#121212</span>;
+                                <span class="property">--zc-text-color</span>: <span class="value">#f1f1f1</span>;
+                                <span class="property">--zc-primary-color</span>: <span class="value">#1a73e8</span>;
+                            }
+                        </code>
+                    </pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!document.documentElement.hasAttribute('data-theme')) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+            }
+
+            document.querySelector('.zc-button').addEventListener('click', toggleTheme);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
+                        setTimeout(() => {
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
