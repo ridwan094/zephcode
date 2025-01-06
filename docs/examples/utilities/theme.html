@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theme Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         html {
             font-size: 100%;
@@ -255,13 +256,13 @@
             <p>This box changes colors based on the current theme.</p>
 
             <!-- CSS Snippet -->
-            <section>
-                <h2>CSS Snippet</h2>
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
-                    <i id="copy-icon" class="zc-icon-copy" title="Copy Code"></i>
+            <section class="code-snippet">
+                <h2>CSS Snippet for Theme</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
                     <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
                 </div>
-                <div class="code-snippet" id="css-snippet">
+                <pre id="css-snippet">
                     <pre>
                         <code>
                             <span class="selector">:root</span> {

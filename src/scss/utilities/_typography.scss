@@ -1,39 +1,84 @@
-.text-muted {
-    color: #6c757d !important;
+@use "../abstracts/variables" as vars;
+
+/* Text Colors */
+.zc-text-muted {
+    color: vars.$secondary-color !important; // Menggunakan variabel warna
 }
 
-.font-weight-bold {
+/* Font Weight */
+.zc-font-weight-bold {
     font-weight: 700 !important;
 }
 
-.font-italic {
+.zc-font-weight-normal {
+    font-weight: 400 !important;
+}
+
+.zc-font-weight-light {
+    font-weight: 300 !important;
+}
+
+/* Font Style */
+.zc-font-italic {
     font-style: italic !important;
 }
 
-.font-monospace {
+.zc-font-normal {
+    font-style: normal !important;
+}
+
+/* Font Family */
+.zc-font-monospace {
     font-family: monospace, monospace !important;
 }
 
-.fs-1 {
+/* Font Sizes */
+.zc-fs-1 {
     font-size: 2.5rem !important;
 }
 
-.fs-2 {
+.zc-fs-2 {
     font-size: 2rem !important;
 }
 
-.fs-3 {
+.zc-fs-3 {
     font-size: 1.75rem !important;
 }
 
-.fs-4 {
+.zc-fs-4 {
     font-size: 1.5rem !important;
 }
 
-.resp-font-sm {
-    font-size: calc(0.8rem + 0.2vw);
+/* Responsive Font Sizes */
+.zc-resp-font-sm {
+    font-size: calc(0.8rem + 0.2vw) !important;
 }
 
-.resp-font-lg {
-    font-size: calc(1.5rem + 0.5vw);
+.zc-resp-font-lg {
+    font-size: calc(1.5rem + 0.5vw) !important;
+}
+
+/* Additional Typography Utilities */
+.zc-letter-spacing {
+    letter-spacing: 0.1em !important;
+}
+
+.zc-line-height-sm {
+    line-height: 1.2 !important;
+}
+
+.zc-line-height-lg {
+    line-height: 1.8 !important;
+}
+
+.zc-text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.zc-text-lowercase {
+    text-transform: lowercase !important;
+}
+
+.zc-text-capitalize {
+    text-transform: capitalize !important;
 }
