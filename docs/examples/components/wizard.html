@@ -6,23 +6,347 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizard Example - ZephCode</title>
     <link rel="stylesheet" href="../../zephcode.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin: 1.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: calc(1rem + 0.2vw);
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            margin: 0.3rem 0.2rem;
+            color: #333;
+            padding: 0.6rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* CSS Snippet Section */
+        .code-snippet {
+            margin-top: 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            border-left: 5px solid #007bff;
+            font-size: 0.9rem;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-snippet span.property {
+            color: #005cc5;
+        }
+
+        .code-snippet span.value {
+            color: #032f62;
+        }
+
+        .code-snippet span.selector {
+            color: #d73a49;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .zc-icon-copy {
+            font-size: 1.5rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .zc-icon-copy:hover {
+            color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <header class="zc-navbar">
-        <div class="zc-navbar-brand">ZephCode</div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-brand">ZephCode</div>
         <nav>
             <a href="../../index.html">Home</a>
         </nav>
     </header>
-    <main>
-        <h1>Wizard Example</h1>
-        <div class="zc-stepper">
-            <div class="zc-step active">Step 1</div>
-            <div class="zc-step">Step 2</div>
-            <div class="zc-step">Step 3</div>
-        </div>
-    </main>
+
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Components</h3>
+            <a href="../components/alerts.html">Alerts</a>
+            <a href="../components/accordion.html">Accordion</a>
+            <a href="../components/badges.html">Badges</a>
+            <a href="../components/breadcrumbs.html">Breadcrumbs</a>
+            <a href="../components/buttons.html">Buttons</a>
+            <a href="../components/cards.html">Cards</a>
+            <a href="../components//carousel.html">Carousel</a>
+            <a href="../components/dropdown.html">Dropdown</a>
+            <a href="../components/forms.html">Forms</a>
+            <a href="../components/modals.html">Modals</a>
+            <a href="../components/offcanvas.html">Offcanvas</a>
+            <a href="../components/pagination.html">Pagination</a>
+            <a href="../components/progress.html">Progress Bar</a>
+            <a href="../components/sidebar.html">Sidebar</a>
+            <a href="../components/spinner.html">Spinner</a>
+            <a href="../components/stepper.html">Stepper</a>
+            <a href="../components/tables.html">Tables</a>
+            <a href="../components/tabs.html">Tabs</a>
+            <a href="../components/timeline.html">Timeline</a>
+            <a href="../components/toast.html">Toast</a>
+            <a href="../components/tooltips.html">Tooltips</a>
+            <a href="../components/wizard.html" class="active">Wizard</a>
+
+            <h3>Layout</h3>
+            <a href="../layout/grid.html">Grid</a>
+            <a href="../layout/navbar.html">Navbar</a>
+
+            <h3>Utilities</h3>
+            <a href="../utilities/animations.html">Animations</a>
+            <a href="../utilities/borders.html">Border</a>
+            <a href="../utilities/display.html">Display</a>
+            <a href="../utilities/flex.html">Flex</a>
+            <a href="../utilities/position.html">Position</a>
+            <a href="../utilities/shadows.html">Shadow</a>
+            <a href="../utilities/spacing.html">Spacing</a>
+            <a href="../utilities/text.html">Text</a>
+            <a href="../utilities/theme.html">Theme</a>
+            <a href="../utilities/typography.html">Typography</a>
+            <a href="../utilities/zindex.html">Z-index</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Wizard Example</h1>
+            <p>This example demonstrates how to use the ZephCode Wizard component.</p>
+
+            <!-- Wizard Component -->
+            <div class="zc-wizard">
+                <div class="zc-wizard-steps">
+                    <div class="zc-step zc-step-active">
+                        <div class="zc-step-circle">1</div>
+                        <div class="zc-step-label">Step 1</div>
+                    </div>
+                    <div class="zc-step">
+                        <div class="zc-step-circle">2</div>
+                        <div class="zc-step-label">Step 2</div>
+                    </div>
+                    <div class="zc-step">
+                        <div class="zc-step-circle">3</div>
+                        <div class="zc-step-label">Step 3</div>
+                    </div>
+                </div>
+
+                <div class="zc-wizard-content zc-wizard-content-active">
+                    <p>This is the content for Step 1.</p>
+                    <button class="zc-btn zc-btn-primary" onclick="nextStep(1)">Next</button>
+                </div>
+                <div class="zc-wizard-content">
+                    <p>This is the content for Step 2.</p>
+                    <button class="zc-btn zc-btn-secondary" onclick="prevStep(1)">Previous</button>
+                    <button class="zc-btn zc-btn-primary" onclick="nextStep(2)">Next</button>
+                </div>
+                <div class="zc-wizard-content">
+                    <p>This is the content for Step 3.</p>
+                    <button class="zc-btn zc-btn-secondary" onclick="prevStep(2)">Previous</button>
+                </div>
+            </div>
+
+            <!-- CSS Snippet Section -->
+            <section class="code-snippet">
+                <h2>CSS Snippet for Wizard</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i id="copy-icon" class="fas fa-copy" style="cursor: pointer;" title="Copy Code"></i>
+                    <span id="copy-status" style="font-size: 0.9rem; color: #333;"></span>
+                </div>
+                <pre id="css-snippet">
+<code>
+<span class="selector">.zc-wizard</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+    <span class="property">align-items</span>: <span class="value">center</span>;
+}
+
+<span class="selector">.zc-step</span> {
+    <span class="property">padding</span>: <span class="value">1rem</span>;
+    <span class="property">cursor</span>: <span class="value">pointer</span>;
+}
+</code>
+                </pre>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function nextStep(currentStep) {
+            const steps = document.querySelectorAll('.zc-step');
+            const contents = document.querySelectorAll('.zc-wizard-content');
+
+            steps[currentStep].classList.add('zc-step-active');
+            contents[currentStep].classList.add('zc-wizard-content-active');
+
+            steps[currentStep - 1].classList.remove('zc-step-active');
+            contents[currentStep - 1].classList.remove('zc-wizard-content-active');
+        }
+
+        function prevStep(currentStep) {
+            const steps = document.querySelectorAll('.zc-step');
+            const contents = document.querySelectorAll('.zc-wizard-content');
+
+            steps[currentStep - 1].classList.add('zc-step-active');
+            contents[currentStep - 1].classList.add('zc-wizard-content-active');
+
+            steps[currentStep].classList.remove('zc-step-active');
+            contents[currentStep].classList.remove('zc-wizard-content-active');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const copyIcon = document.getElementById('copy-icon');
+            const codeSnippet = document.getElementById('css-snippet');
+            const copyStatus = document.getElementById('copy-status');
+
+            if (copyIcon && codeSnippet) {
+                copyIcon.addEventListener('click', () => {
+                    const codeContent = codeSnippet.innerText.trim();
+                    navigator.clipboard.writeText(codeContent).then(() => {
+                        copyIcon.classList.remove('fa-copy');
+                        copyIcon.classList.add('fa-check');
+                        copyStatus.innerText = "Code copied!";
+                        copyStatus.style.color = "#28a745";
+
+                        setTimeout(() => {
+                            copyIcon.classList.remove('fa-check');
+                            copyIcon.classList.add('fa-copy');
+                            copyStatus.innerText = "";
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyStatus.innerText = "Failed to copy!";
+                        copyStatus.style.color = "#dc3545";
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
