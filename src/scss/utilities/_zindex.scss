@@ -1,11 +1,61 @@
-.z-index-0 {
+@use "../abstracts/variables" as vars;
+
+.zc-z-index-0 {
     z-index: 0 !important;
 }
 
-.z-index-1 {
+.zc-z-index-1 {
     z-index: 1 !important;
 }
 
-.z-index-auto {
+.zc-z-index-10 {
+    z-index: 10 !important;
+}
+
+.zc-z-index-50 {
+    z-index: 50 !important;
+}
+
+.zc-z-index-100 {
+    z-index: 100 !important;
+}
+
+.zc-z-index-auto {
     z-index: auto !important;
+}
+
+@media (min-width: vars.$breakpoint-sm) {
+    .zc-z-index-sm-0 {
+        z-index: 0 !important;
+    }
+    .zc-z-index-sm-100 {
+        z-index: 100 !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-md) {
+    .zc-z-index-md-0 {
+        z-index: 0 !important;
+    }
+    .zc-z-index-md-100 {
+        z-index: 100 !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-lg) {
+    .zc-z-index-lg-0 {
+        z-index: 0 !important;
+    }
+    .zc-z-index-lg-100 {
+        z-index: 100 !important;
+    }
+}
+
+@media (min-width: vars.$breakpoint-xl) {
+    .zc-z-index-xl-0 {
+        z-index: 0 !important;
+    }
+    .zc-z-index-xl-100 {
+        z-index: 100 !important;
+    }
 }
