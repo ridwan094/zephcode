@@ -1,18 +1,135 @@
+@use "../abstracts/variables" as vars;
+
 .zc-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
+    background-color: vars.$primary-color;
+    color: vars.$white;
+    padding: vars.$spacing-md;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &.zc-navbar-light {
+        background-color: vars.$white;
+        color: vars.$text-color;
+    }
+
+    &.zc-navbar-dark {
+        background-color: vars.$dark-color;
+        color: vars.$white;
+    }
 }
 
-.zc-navbar a {
-    color: white;
+.zc-navbar-brand {
+    font-size: vars.$font-size-lg;
+    font-weight: vars.$font-weight-bold;
     text-decoration: none;
-    margin-left: 1rem;
+    color: inherit;
+
+    &:hover {
+        color: vars.$secondary-color;
+    }
 }
 
-.zc-navbar a:hover {
-    text-decoration: underline;
+.zc-navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.zc-navbar-item {
+    margin-left: vars.$spacing-md;
+    position: relative;
+
+    &.active {
+        color: vars.$secondary-color;
+        font-weight: vars.$font-weight-bold;
+    }
+}
+
+.zc-navbar-link {
+    color: inherit;
+    text-decoration: none;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    border-radius: vars.$border-radius;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        text-decoration: underline;
+    }
+}
+
+.zc-navbar-dropdown {
+    position: relative;
+
+    &:hover .zc-dropdown-menu {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.zc-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: vars.$white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: vars.$border-radius;
+    padding: vars.$spacing-sm 0;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity vars.$transition-fast;
+
+    .zc-dropdown-item {
+        padding: vars.$spacing-sm vars.$spacing-md;
+        text-decoration: none;
+        color: vars.$text-color;
+
+        &:hover {
+            background-color: vars.$primary-light;
+            color: vars.$primary-color;
+        }
+    }
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: vars.$breakpoint-md) {
+    .zc-navbar {
+        flex-wrap: wrap;
+    }
+
+    .zc-navbar-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: vars.$font-size-lg;
+        color: inherit;
+        cursor: pointer;
+        margin-left: auto;
+
+        &:hover {
+            color: vars.$secondary-color;
+        }
+    }
+
+    .zc-navbar-collapse {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+
+        &.show {
+            display: flex;
+        }
+    }
+
+    .zc-navbar-nav {
+        flex-direction: column;
+    }
+
+    .zc-navbar-item {
+        margin-left: 0;
+        margin-bottom: vars.$spacing-sm;
+    }
 }
