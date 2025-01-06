@@ -1,26 +1,131 @@
+@use "../abstracts/variables" as vars;
+
 .zc-tooltip {
     position: relative;
     display: inline-block;
+
+    &.zc-tooltip-top .zc-tooltip-text {
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.zc-tooltip-bottom .zc-tooltip-text {
+        top: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.zc-tooltip-left .zc-tooltip-text {
+        right: 125%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.zc-tooltip-right .zc-tooltip-text {
+        left: 125%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.zc-tooltip-top-left .zc-tooltip-text {
+        bottom: 125%;
+        left: 0;
+        transform: translateX(0);
+    }
+
+    &.zc-tooltip-top-right .zc-tooltip-text {
+        bottom: 125%;
+        right: 0;
+        transform: translateX(0);
+    }
+
+    &.zc-tooltip-bottom-left .zc-tooltip-text {
+        top: 125%;
+        left: 0;
+        transform: translateX(0);
+    }
+
+    &.zc-tooltip-bottom-right .zc-tooltip-text {
+        top: 125%;
+        right: 0;
+        transform: translateX(0);
+    }
 }
 
 .zc-tooltip .zc-tooltip-text {
     visibility: hidden;
-    width: 120px;
-    background-color: #000;
-    color: #fff;
+    background-color: vars.$black;
+    color: vars.$white;
     text-align: center;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
+    border-radius: vars.$border-radius;
+    padding: vars.$spacing-xs vars.$spacing-sm;
     position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
+    z-index: vars.$z-index-tooltip;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity vars.$transition-fast, transform vars.$transition-fast;
+    transform: translateY(10px);
+
+    // Themed Tooltips
+    &.zc-tooltip-primary {
+        background-color: vars.$primary-color;
+        color: vars.$white;
+    }
+
+    &.zc-tooltip-success {
+        background-color: vars.$success-color;
+        color: vars.$white;
+    }
+
+    &.zc-tooltip-danger {
+        background-color: vars.$danger-color;
+        color: vars.$white;
+    }
+
+    &.zc-tooltip-warning {
+        background-color: vars.$warning-color;
+        color: vars.$text-color-dark;
+    }
+
+    &.zc-tooltip-info {
+        background-color: vars.$info-color;
+        color: vars.$white;
+    }
+
+    // Support for Icons
+    .zc-tooltip-icon {
+        margin-right: vars.$spacing-xs;
+        font-size: vars.$font-size-sm;
+    }
 }
 
 .zc-tooltip:hover .zc-tooltip-text {
     visibility: visible;
     opacity: 1;
+    transform: translateY(0);
+}
+
+// Animations
+@keyframes tooltipFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.zc-tooltip .zc-tooltip-text {
+    animation: tooltipFade vars.$animation-duration-short ease-in-out;
+}
+
+// Responsiveness
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-tooltip .zc-tooltip-text {
+        font-size: vars.$font-size-sm;
+        max-width: 90%;
+        word-wrap: break-word;
+    }
 }
