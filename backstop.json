@@ -1,0 +1,259 @@
+{
+  "id": "zephcode-css",
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Accordion Test",
+      "url": "http://localhost:3001/examples/components/accordion.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Alerts Test",
+      "url": "http://localhost:3001/examples/components/alerts.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Badges Test",
+      "url": "http://localhost:3001/examples/components/badges.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Breadcrumbs Test",
+      "url": "http://localhost:3001/examples/components/breadcrumbs.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Buttons Test",
+      "url": "http://localhost:3001/examples/components/buttons.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Cards Test",
+      "url": "http://localhost:3001/examples/components/cards.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Carousel Test",
+      "url": "http://localhost:3001/examples/components/carousel.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Dropdown Test",
+      "url": "http://localhost:3001/examples/components/dropdown.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Forms Test",
+      "url": "http://localhost:3001/examples/components/forms.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Modals Test",
+      "url": "http://localhost:3001/examples/components/modals.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Offcanvas Test",
+      "url": "http://localhost:3001/examples/components/offcanvas.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Pagination Test",
+      "url": "http://localhost:3001/examples/components/pagination.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Sidebar Test",
+      "url": "http://localhost:3001/examples/components/sidebar.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Spineer Test",
+      "url": "http://localhost:3001/examples/components/spineer.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Stepper Test",
+      "url": "http://localhost:3001/examples/components/stepper.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Tables Test",
+      "url": "http://localhost:3001/examples/components/tables.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Tabs Test",
+      "url": "http://localhost:3001/examples/components/tabs.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Timeline Test",
+      "url": "http://localhost:3001/examples/components/timeline.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Toast Test",
+      "url": "http://localhost:3001/examples/components/toast.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Tooltips Test",
+      "url": "http://localhost:3001/examples/components/tooltips.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Wizard Test",
+      "url": "http://localhost:3001/examples/components/wizard.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Grid Layout",
+      "url": "http://localhost:3001/examples/layout/grid.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Navbar Layout",
+      "url": "http://localhost:3001/examples/layout/navbar.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Animations Utilities",
+      "url": "http://localhost:3001/examples/utilities/animations.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Borders Utilities",
+      "url": "http://localhost:3001/examples/utilities/borders.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Display Utilities",
+      "url": "http://localhost:3001/examples/utilities/display.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Flex Utilities",
+      "url": "http://localhost:3001/examples/utilities/flex.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Position Utilities",
+      "url": "http://localhost:3001/examples/utilities/position.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Shadows Utilities",
+      "url": "http://localhost:3001/examples/utilities/shadows.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Spacing Utilities",
+      "url": "http://localhost:3001/examples/utilities/spacing.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Text Utilities",
+      "url": "http://localhost:3001/examples/utilities/text.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Theme Utilities",
+      "url": "http://localhost:3001/examples/utilities/theme.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Typography Utilities",
+      "url": "http://localhost:3001/examples/utilities/typography.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    },
+    {
+      "label": "Z-index Utilities",
+      "url": "http://localhost:3001/examples/utilities/zindex.html",
+      "selectors": ["body"],
+      "misMatchThreshold": 0.1,
+      "delay": 3000
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "html_report": "backstop_data/html_report"
+  },
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  }
+}

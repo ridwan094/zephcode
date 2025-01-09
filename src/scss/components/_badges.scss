@@ -139,3 +139,21 @@
         padding: 0.2rem 0.4rem;
     }
 }
+
+.zc-badge-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; // Membungkus jika terlalu panjang
+}
+
+// Responsivitas
+@media (max-width: vars.$breakpoint-sm) {
+    .zc-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .zc-badge-group {
+        gap: 0.5rem; // Kurangi jarak antar badge pada layar kecil
+    }
+}

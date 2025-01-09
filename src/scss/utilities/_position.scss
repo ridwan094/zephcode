@@ -53,6 +53,35 @@
     left: auto !important;
 }
 
+.zc-position-box {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.zc-sticky-box {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffc107;
+    font-size: 1rem;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+
+.zc-description {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
 /* Responsive Position Utilities */
 @media (min-width: vars.$breakpoint-sm) {
     .zc-position-sm-static {

@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as vars;
+
+.zc-main-content {
+    flex: 1;
+    padding: vars.$spacing-xl;
+    background-color: vars.$white;
+    border-radius: vars.$border-radius-lg;
+    box-shadow: vars.$shadow-lg; 
+    margin-left: vars.$spacing-lg;
+
+    h1 {
+        font-size: 1.8rem; 
+        color: vars.$primary-color;
+        margin-bottom: vars.$spacing-md;
+    }
+
+    p {
+        margin-bottom: vars.$spacing-lg;
+        font-size: vars.$font-size-md;
+    }
+}

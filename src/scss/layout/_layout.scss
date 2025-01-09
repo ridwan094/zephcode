@@ -1,0 +1,43 @@
+
+.zc-layout {
+    display: flex;
+    margin: 1.5rem;
+}
+
+// Variasi tambahan untuk layout
+.zc-layout-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.zc-layout-space-between {
+    justify-content: space-between;
+}
+
+.zc-layout-wrap {
+    flex-wrap: wrap;
+}
+
+.zc-layout-column {
+    flex-direction: column;
+}
+
+.zc-layout-gap-sm {
+    gap: 0.5rem;
+}
+
+.zc-layout-gap-md {
+    gap: 1rem;
+}
+
+.zc-layout-gap-lg {
+    gap: 1.5rem;
+}
+
+// Responsiveness
+@media (max-width: 768px) {
+    .zc-layout {
+        flex-direction: column;
+        margin: 1rem;
+    }
+}

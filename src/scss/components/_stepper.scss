@@ -4,131 +4,92 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: vars.$spacing-md; // Menggunakan spacing variabel
+    padding: vars.$spacing-md;
     position: relative;
 
-    &.zc-stepper--dark {
-        .zc-step-circle {
-            background-color: vars.$stepper-line-color; // Warna garis dari variabel
-            color: vars.$text-color-light; // Warna teks terang dari variabel
+    .zc-step {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        padding: vars.$spacing-md;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: vars.$stepper-line-color;
+            z-index: -1;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease;
         }
 
-        .zc-step.active {
-            color: vars.$stepper-active-color; // Warna aktif dari variabel
+        &:last-child::before {
+            content: none; // Menghapus garis terakhir
         }
-    }
 
-    &.zc-stepper--success .zc-step-circle {
-        background-color: vars.$success-color;
-    }
+        &.completed + .zc-step::before {
+            background-color: vars.$success-color;
+        }
 
-    &.zc-stepper--error .zc-step-circle {
-        background-color: vars.$danger-color;
-    }
-}
+        &.active + .zc-step::before {
+            background-color: vars.$primary-color;
+        }
 
-.zc-step {
-    flex: 1;
-    text-align: center;
-    position: relative;
+        &.completed {
+            .zc-step-icon {
+                background-color: vars.$success-color;
+            }
+            .zc-step-label {
+                color: vars.$success-color;
+            }
+        }
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: vars.$stepper-line-color; // Warna garis dari variabel
-        z-index: vars.$z-index-default; // Menggunakan z-index default dari variabel
-        transform: translateY(-50%);
-        transition: background-color vars.$transition-normal;
-    }
+        &.active {
+            .zc-step-icon {
+                background-color: vars.$warning-color;
+                animation: spin 1s linear infinite;
+            }
+            .zc-step-label {
+                color: vars.$primary-color;
+            }
+        }
 
-    &:last-child::before {
-        content: none; // Menghilangkan garis di step terakhir
-    }
+        &:hover .zc-step-icon {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
 
-    &.active {
-        color: vars.$stepper-active-color; // Warna aktif dari variabel
-        font-weight: vars.$stepper-font-weight-active; // Font weight aktif dari variabel
-    }
+        .zc-step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: vars.$white;
+            margin: 0 auto 0.5rem;
+            background-color: vars.$primary-color;
+            transition: transform 0.3s ease;
+        }
 
-    &[aria-current="step"] {
-        font-weight: vars.$stepper-font-weight-active;
-        text-decoration: underline;
-    }
-
-    &:hover::after {
-        content: attr(data-tooltip); // Menambahkan tooltip pada hover
-        position: absolute;
-        top: -2rem;
-        background-color: vars.$black; // Warna latar hitam
-        color: vars.$white; // Warna teks putih
-        padding: vars.$spacing-xs;
-        border-radius: vars.$border-radius-sm;
-        font-size: vars.$font-size-xs;
-        white-space: nowrap;
-        z-index: vars.$z-index-tooltip; // Z-index untuk tooltip
-    }
-
-    &.zc-step--complete .zc-step-circle {
-        background-color: vars.$success-color;
-    }
-
-    &.zc-step--disabled {
-        color: vars.$text-color-light;
-        cursor: not-allowed;
-
-        .zc-step-circle {
-            background-color: vars.$gray-light;
+        .zc-step-label {
+            font-size: 1rem;
+            color: vars.$text-color-dark;
         }
     }
 }
 
-.zc-step-circle {
-    display: inline-block;
-    width: vars.$stepper-circle-size; // Ukuran lingkaran dari variabel
-    height: vars.$stepper-circle-size;
-    line-height: vars.$stepper-circle-size;
-    border-radius: 50%;
-    background-color: vars.$stepper-active-color;
-    color: vars.$text-color-light;
-    font-size: vars.$stepper-font-size; // Ukuran font dari variabel
-    transition: background-color vars.$transition-normal, transform vars.$transition-normal;
-
-    &.active {
-        transform: scale(1.1); // Efek skala saat aktif
+/* Keyframe Animations */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
-}
-
-.zc-stepper-progress {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: 2px;
-    background-color: vars.$stepper-active-color;
-    z-index: vars.$z-index-overlay; // Gunakan variabel yang baru ditambahkan
-    width: 50%; // Update width sesuai progress
-    transform: translateY(-50%);
-    transition: width vars.$transition-normal;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -136,22 +97,22 @@
     .zc-stepper {
         flex-direction: column;
         align-items: flex-start;
-    }
 
-    .zc-step {
-        text-align: left;
+        .zc-step {
+            text-align: left;
 
-        &::before {
-            top: auto;
-            left: 50%;
-            right: auto;
-            height: auto;
-            width: 2px; // Vertical line untuk tampilan kecil
-            transform: translateX(-50%);
+            &::before {
+                top: auto;
+                left: 50%;
+                right: auto;
+                height: auto;
+                width: 2px;
+                transform: translateX(-50%);
+            }
         }
-    }
 
-    .zc-step-circle {
-        margin-bottom: vars.$spacing-sm;
+        .zc-step-icon {
+            margin-bottom: vars.$spacing-sm;
+        }
     }
 }

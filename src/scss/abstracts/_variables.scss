@@ -10,6 +10,16 @@ $warning-color: #ffc107; // Yellow
 $info-color: #17a2b8; // Cyan
 $dark-color: #343a40; // Warna gelap
 $light-color: #f8f9fa;
+$purple-color: #6f42c1;
+
+$light-primary: rgba($primary-color, 0.1);
+$light-secondary: rgba($secondary-color, 0.1);
+$light-success: rgba($success-color, 0.1);
+$light-danger: rgba($danger-color, 0.1);
+$light-warning: rgba($warning-color, 0.1);
+$light-info: rgba($info-color, 0.1);
+$light-dark: rgba($dark-color, 0.1);
+$light-purple: rgba($purple-color, 0.1);
 
 // Extended Colors
 $primary-light: color.adjust($primary-color, $lightness: 20%);
@@ -22,6 +32,12 @@ $info-color-light: color.adjust($info-color, $lightness: 20%);
 $info-color-dark: color.adjust($info-color, $lightness: -20%);
 $warning-color-light: color.adjust($warning-color, $lightness: 20%);
 $warning-color-dark: color.adjust($warning-color, $lightness: -20%);
+$warning-light: color.adjust($warning-color, $lightness: 20%);
+$warning-dark: color.adjust($warning-color, $lightness: -20%);
+$info-light: color.adjust($info-color, $lightness: 20%);
+$info-dark: color.adjust($info-color, $lightness: -20%);
+$purple-light: color.adjust($purple-color, $lightness: 20%);
+$purple-dark: color.adjust($purple-color, $lightness: -20%); 
 
 // Neutral Colors
 $white: #ffffff;
@@ -64,6 +80,14 @@ $spacing-md: $spacing-unit;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
 $spacing-xxl: 3rem;
+
+$padding-xxs: 0.125rem;
+$padding-xs: 0.25rem;
+$padding-sm: 0.5rem;
+$padding-md: 1rem;
+$padding-lg: 1.5rem;
+$padding-xl: 2rem;
+$padding-xxl: 3rem;
 
 // Font
 $font-family-sans: 'Arial', sans-serif;

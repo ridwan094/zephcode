@@ -5,6 +5,7 @@
     border-radius: 0.25rem;
     overflow: hidden;
     position: relative;
+    margin-bottom: 1rem; /* Properti baru dari example */
 
     /* Variasi Ukuran */
     &.zc-progress-sm {
@@ -26,6 +27,8 @@
     background-color: #007bff;
     width: 50%; /* Default width */
     transition: width 0.6s ease;
+    text-align: center; /* Properti baru dari example */
+    line-height: 1rem; /* Properti baru dari example */
 
     /* Variasi Warna */
     &.zc-progress-success {
@@ -47,6 +50,7 @@
     /* Gradient Warna */
     &.zc-progress-gradient {
         background: linear-gradient(to right, #007bff, #17a2b8);
+        color: #fff;
     }
 
     /* Efek Striped */
@@ -120,9 +124,9 @@
     transform: translateX(-50%);
     background-color: #007bff;
     color: #fff;
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.4rem; /* Properti baru dari example */
     border-radius: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem; /* Properti baru dari example */
     opacity: 0;
     transition: opacity 0.3s ease;
 
@@ -130,4 +134,13 @@
     .zc-progress:hover & {
         opacity: 1;
     }
+}
+
+/* Section untuk Progress */
+.progress-section { /* Properti baru dari example */
+    margin-bottom: 2rem;
+}
+
+.progress-section h2 { /* Properti baru dari example */
+    margin-bottom: 1rem;
 }

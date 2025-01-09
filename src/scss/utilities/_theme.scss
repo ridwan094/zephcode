@@ -70,3 +70,14 @@ body {
 .zc-link:hover {
     color: var(--zc-link-hover-color);
 }
+
+.zc-theme-box {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--zc-border-color);
+    border-radius: 10px;
+    background-color: var(--zc-bg-color);
+    color: var(--zc-text-color);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

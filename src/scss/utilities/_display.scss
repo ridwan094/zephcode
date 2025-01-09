@@ -5,26 +5,44 @@
 /* Global Display */
 .zc-d-none {
     display: none;
+    border-color: vars.$danger-color; /* Red border for none */
+    background-color: vars.$light-danger; /* Light red background */
+    color: vars.$danger-color;
 }
 
 .zc-d-inline {
     display: inline;
+    border-color: vars.$warning-color; /* Yellow border for inline */
+    background-color: vars.$light-warning; /* Light yellow background */
+    color: vars.$warning-dark;
 }
 
 .zc-d-block {
     display: block;
+    border-color: vars.$success-color; /* Green border for block */
+    background-color: vars.$light-success; /* Light green background */
+    color: vars.$success-dark;
 }
 
 .zc-d-flex {
     display: flex;
+    border-color: vars.$primary-color; /* Blue border for flex */
+    background-color: vars.$light-primary; /* Light blue background */
+    color: vars.$primary-dark;
 }
 
 .zc-d-inline-block {
     display: inline-block;
+    border-color: vars.$info-color; /* Cyan border for inline-block */
+    background-color: vars.$light-info; /* Light cyan background */
+    color: vars.$info-dark;
 }
 
 .zc-d-grid {
     display: grid;
+    border-color: vars.$purple-color; /* Purple border for grid */
+    background-color: vars.$light-purple; /* Light purple background */
+    color: vars.$purple-dark;
 }
 
 .zc-d-inline-flex {
@@ -150,4 +168,31 @@
     .zc-d-xl-inline-flex {
         display: inline-flex;
     }
+}
+
+/* Example Styling */
+.zc-example-box {
+    width: 100px;
+    height: 100px;
+    background-color: vars.$primary-color !important;
+    color: vars.$white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: vars.$spacing-md;
+    border-radius: vars.$border-radius;
+    border: 2px solid transparent;
+}
+
+.zc-example-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-md;
+    margin-top: vars.$spacing-lg;
+}
+
+.zc-responsive-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-md;
 }

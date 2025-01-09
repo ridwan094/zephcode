@@ -1,19 +1,24 @@
 @use "../abstracts/variables" as vars;
 
+/* Z-Index Utilities */
 .zc-z-index-0 {
     z-index: 0 !important;
+    background-color: vars.$danger-light; /* Light red background */
 }
 
 .zc-z-index-1 {
     z-index: 1 !important;
+    background-color: vars.$info-light; /* Light blue background */
 }
 
 .zc-z-index-10 {
     z-index: 10 !important;
+    background-color: vars.$success-light; /* Light green background */
 }
 
 .zc-z-index-50 {
     z-index: 50 !important;
+    background-color: vars.$warning-light; /* Light yellow background */
 }
 
 .zc-z-index-100 {
@@ -24,6 +29,25 @@
     z-index: auto !important;
 }
 
+/* Hover Effects */
+.zc-z-index-box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    color: vars.$white;
+    font-weight: vars.$font-weight-bold;
+    border-radius: vars.$border-radius-lg;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Responsive Z-Index */
 @media (min-width: vars.$breakpoint-sm) {
     .zc-z-index-sm-0 {
         z-index: 0 !important;
@@ -58,4 +82,42 @@
     .zc-z-index-xl-100 {
         z-index: 100 !important;
     }
+}
+
+/* Z-Index Container */
+.zc-z-index-container {
+    position: relative;
+    height: 300px;
+    margin: vars.$spacing-lg 0;
+    border: 1px dashed vars.$border-color;
+    background-color: vars.$light-color;
+}
+
+/* Individual Boxes */
+.zc-z-index-box.zc-z-index-0 {
+    z-index: 0;
+    top: 50px;
+    left: 50px;
+    background-color: vars.$danger-light;
+}
+
+.zc-z-index-box.zc-z-index-1 {
+    z-index: 1;
+    top: 80px;
+    left: 80px;
+    background-color: vars.$info-light;
+}
+
+.zc-z-index-box.zc-z-index-10 {
+    z-index: 10;
+    top: 110px;
+    left: 110px;
+    background-color: vars.$success-light;
+}
+
+.zc-z-index-box.zc-z-index-50 {
+    z-index: 50;
+    top: 140px;
+    left: 140px;
+    background-color: vars.$warning-light;
 }

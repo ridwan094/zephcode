@@ -6,41 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZephCode Documentation</title>
     <link rel="stylesheet" href="zephcode.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <style>
-        /* Global Styling */
-        html {
-            font-size: 100%; /* Default font-size: 16px */
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            font-size: 1rem; /* Standard font-size */
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: #007bff;
-            color: #fff;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: bold;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-
         /* Hero Section */
         .hero {
             background-color: #0056b3;
@@ -59,26 +26,6 @@
             margin-top: 0;
         }
 
-        /* Layout */
-        .layout {
-            display: flex;
-            margin: 1.5rem;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .sidebar h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #007bff;
-        }
 
         .sidebar input {
             width: 100%;
@@ -87,56 +34,13 @@
             border: 1px solid #ced4da;
             border-radius: 5px;
         }
-
-        .sidebar a {
-            display: block;
-            text-decoration: none;
-            margin: 0.5rem 0;
-            color: #333;
-            padding: 0.5rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            background-color: #e9ecef;
-        }
-
-        .sidebar a.hidden {
-            display: none;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-left: 1rem;
-        }
-
-        .main-content h2 {
-            color: #007bff;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #555;
-            margin-top: 2rem;
-        }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <header class="navbar">
-        <div class="navbar-brand">ZephCode</div>
+    <header class="zc-navbar">
+        <div class="zc-navbar-brand">ZephCode</div>
         <nav>
             <a href="#">Home</a>
             <a href="#">About</a>
@@ -151,9 +55,9 @@
     </section>
 
     <!-- Layout -->
-    <div class="layout">
+    <div class="zc-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="zc-sidebar">
             <h3>Components</h3>
             <input type="text" id="searchInput" placeholder="Search components...">
             <a href="examples/components/alerts.html">Alerts</a>
@@ -198,15 +102,15 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="zc-main-content">
             <h2>Explore Components and Layouts</h2>
             <p>Select a category from the sidebar to view its details.</p>
         </main>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        &copy; 2025 ZephCode CSS Framework - Built with passion for developers.
+    <footer class="zc-footer">
+        &copy; 2025 ZephCode CSS Framework - Built with <span style="color: red;">&#10084;</span> for developers.
     </footer>
 
     <!-- JavaScript for Search -->

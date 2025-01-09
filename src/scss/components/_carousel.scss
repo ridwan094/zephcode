@@ -29,6 +29,9 @@
     font-size: 1.25rem;
     background-color: variables.$white;
     color: variables.$text-color;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     @media (max-width: 768px) {
         padding: 1rem;
@@ -40,6 +43,7 @@
 .zc-carousel-item.active {
     opacity: 1;
     transform: translateX(0);
+    position: relative;
 }
 
 .zc-carousel-item.previous {

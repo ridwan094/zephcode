@@ -1,20 +1,56 @@
-/* Kode Asli */
+/* Grid Layout */
 .zc-row {
     display: flex;
     flex-wrap: wrap;
     margin: -0.5rem;
+
+    &.debug .zc-col {
+        border: 1px dashed red; // Debug style
+    }
 }
 
 .zc-col {
     flex: 1;
-    padding: 0.5rem;
+    padding: 20px; // Sesuai dengan style example
+    text-align: center;
+    border: 1px solid #dee2e6; // Border dari style example
+    background-color: #f8f9fa; // Background dari style example
     max-width: 100%;
 }
 
-/* Grid Layout */
+/* Grid Styling */
+.grid-example {
+    margin-bottom: 2rem; // Sesuai dengan style example
+}
+
+.zc-heading {
+    background-color: #007bff; // Background heading dari style example
+    color: white; // Warna teks heading
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Grid Display */
 .zc-grid {
     display: grid;
     gap: 1rem;
+
+    &-gap-xs {
+        gap: 0.25rem;
+    }
+    &-gap-sm {
+        gap: 0.5rem;
+    }
+    &-gap-md {
+        gap: 1rem;
+    }
+    &-gap-lg {
+        gap: 1.5rem;
+    }
+    &-gap-xl {
+        gap: 2rem;
+    }
 }
 
 .zc-grid-2 {
@@ -23,6 +59,20 @@
 
 .zc-grid-3 {
     grid-template-columns: repeat(3, 1fr);
+}
+
+/* Nested Grid */
+.zc-grid-nested {
+    display: grid;
+    gap: 1rem;
+
+    &-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* Offset Grid System */
@@ -70,28 +120,7 @@
     background-color: rgba(0, 255, 0, 0.1);
 }
 
-/* Fitur Baru */
-.zc-grid {
-    display: grid;
-    gap: 1rem;
-
-    &-gap-xs {
-        gap: 0.25rem;
-    }
-    &-gap-sm {
-        gap: 0.5rem;
-    }
-    &-gap-md {
-        gap: 1rem;
-    }
-    &-gap-lg {
-        gap: 1.5rem;
-    }
-    &-gap-xl {
-        gap: 2rem;
-    }
-}
-
+/* Grid Alignment */
 .zc-grid-align-center {
     align-items: center;
 }
@@ -100,6 +129,7 @@
     justify-content: center;
 }
 
+/* Grid Areas */
 .zc-grid-areas {
     display: grid;
     grid-template-areas: 
@@ -128,19 +158,5 @@
             "content"
             "sidebar"
             "footer";
-    }
-}
-
-/* Nested Grid */
-.zc-grid-nested {
-    display: grid;
-    gap: 1rem;
-
-    &-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    &-3 {
-        grid-template-columns: repeat(3, 1fr);
     }
 }

@@ -8,6 +8,18 @@
     color: vars.$white;
     padding: vars.$spacing-md;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: vars.$padding-md vars.$padding-xl;
+
+    a {
+        color: vars.$white;
+        text-decoration: none;
+        margin-left: vars.$spacing-lg;
+        font-weight: vars.$font-weight-bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
     &.zc-navbar-light {
         background-color: vars.$white;
@@ -94,6 +106,19 @@
     }
 }
 
+/* Navbar Section */
+.zc-navbar-section {
+    margin-bottom: 2rem; // Ditambahkan dari style example
+}
+
+.zc-navbar-example {
+    margin-bottom: 1.5rem; // Ditambahkan dari style example
+    border: 1px solid #ced4da; // Ditambahkan dari style example
+    border-radius: 10px; // Ditambahkan dari style example
+    padding: 1rem; // Ditambahkan dari style example
+    background-color: #f8f9fa; // Ditambahkan dari style example
+}
+
 /* Responsif untuk layar kecil */
 @media (max-width: vars.$breakpoint-md) {
     .zc-navbar {
@@ -133,3 +158,16 @@
         margin-bottom: vars.$spacing-sm;
     }
 }
+
+@media (max-width: vars.$breakpoint-md) {
+    .zc-navbar-collapse {
+        display: none;
+
+        &.show {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+

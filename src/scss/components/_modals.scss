@@ -7,10 +7,10 @@
     transform: translate(-50%, -50%);
     width: 500px;
     max-width: 90%;
-    background-color: $modal-bg;
-    border: 1px solid $modal-border;
+    background-color: #fff;
+    border: 1px solid #ced4da;
     border-radius: 0.25rem;
-    box-shadow: $modal-shadow;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1050;
     display: none;
     animation: modal-fade-in 0.3s ease-out;
@@ -39,6 +39,10 @@
         color: #fff;
         border: 1px solid #1e7e34;
     }
+
+    &.zc-modal-show {
+        display: block;
+    }
 }
 
 .zc-modal-header {
@@ -47,7 +51,9 @@
     font-weight: bold;
     font-size: 1.25rem;
     background-color: $modal-header-bg;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .zc-modal-icon {
         margin-right: 0.5rem;
@@ -107,6 +113,15 @@
     }
 }
 
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .zc-modal {
         width: 90%;
@@ -122,3 +137,4 @@
         border-radius: 0;
     }
 }
+
